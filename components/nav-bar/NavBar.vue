@@ -9,12 +9,12 @@
     <template #end>
       <b-navbar-item tag="div">
         <div class="buttons">
-          <a class="button has-background-info-dark has-text-white-bis">
+          <nuxt-link to="sign-up" class="button has-background-info-dark has-text-white-bis">
             <strong>Sign up</strong>
-          </a>
-          <a class="button has-background-grey-lighter">
+          </nuxt-link>
+          <nuxt-link to="log-in" class="button has-background-grey-lighter">
             Log in
-          </a>
+          </nuxt-link>
         </div>
       </b-navbar-item>
     </template>
