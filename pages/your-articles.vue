@@ -6,6 +6,11 @@
 
 <script>
 export default {
-  name: 'YourArticlesPage'
+  name: 'YourArticlesPage',
+  head () {
+    return {
+      titleTemplate: 'Your Articles Page'
+    }
+  }
 }
 </script>
