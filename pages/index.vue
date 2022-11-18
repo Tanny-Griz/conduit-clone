@@ -15,10 +15,19 @@
 <script>
 export default {
   name: 'IndexPage',
+  middleware: 'checkAuth',
   data () {
     return {
       info: null
     }
+  },
+  head () {
+    return {
+      titleTemplate: 'General Page'
+    }
+  },
+  created () {
+    this.$log('some')
   }
 }
 </script>
