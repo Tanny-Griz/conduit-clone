@@ -80,6 +80,11 @@
 
 <script>
 export default {
-  name: 'SignUpPage'
+  name: 'SignUpPage',
+  head () {
+    return {
+      titleTemplate: 'Sign Up Page'
+    }
+  }
 }
 </script>
