@@ -17,12 +17,12 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-  ],
+  css: ['@/assets/styles/main.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '@/plugins/console-log',
+    '@/plugins/realworld-api'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
