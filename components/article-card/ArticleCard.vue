@@ -9,29 +9,29 @@
         </div>
         <div class="media-content">
           <p class="title is-3">
-            John Smith
+            {{ author.username }}
           </p>
           <p class="subtitle is-6">
-            <time datetime="2016-1-1">11:09 PM</time>
+            <time datetime="2016-1-1">{{ updatedAt }}</time>
           </p>
         </div>
       </div>
 
       <div class="content">
-        <h3>Title of articles</h3>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium, nobis minima! Magni officia eius necessitatibus ducimus rem quasi minus ut adipisci temporibus illum quidem sunt corporis est explicabo aspernatur vero nisi tempora, reiciendis libero voluptates sit dolores mollitia. Neque, impedit!</p>
+        <h3 class="has-text-truncated">
+          {{ title }}
+        </h3>
+        <p>{{ description }}</p>
       </div>
       <div class="is-flex is-justify-content-space-between is-align-items-center">
         <p>Read more...</p>
         <b-taglist class="pt-2 px-2">
-          <b-tag class="has-background-white-ter has-text-grey is-clickable">
-            tag
-          </b-tag>
-          <b-tag class="has-background-white-ter has-text-grey is-clickable">
-            tag 2
-          </b-tag>
-          <b-tag class="has-background-white-ter has-text-grey is-clickable">
-            tag 3
+          <b-tag
+            v-for='(tag, index) in tagList'
+            :key="tag + index"
+            class="has-background-white-ter has-text-grey is-clickable"
+          >
+            {{ tag }}
           </b-tag>
         </b-taglist>
       </div>
@@ -40,8 +40,31 @@
 </template>
 
 <script>
+import {
+  generateKey
+} from '@/helpers'
+
 export default {
   name: 'ArticleCard',
-  props: {}
+  props: {
+    title: {
+      required: false
+    },
+    description: {
+      required: false
+    },
+    updatedAt: {
+      default: null
+    },
+    author: {
+      default: null
+    },
+    tagList: {
+      required: false
+    }
+  },
+  methods: {
+    generateKey
+  }
 }
 </script>

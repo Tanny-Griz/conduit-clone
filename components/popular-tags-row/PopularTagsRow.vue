@@ -1,5 +1,5 @@
 <template>
-  <div class="has-background-light popular-tags-row mb-6">
+  <div class="popular-tags-row has-background-light mb-6">
     <h2 class="has-text-info has-text-weight-bold mb-3 pt-2 px-2">
       Popular Tags
     </h2>
@@ -15,9 +15,6 @@
 
 export default {
   name: 'PopularTagsRow',
-  props: {
-    tagsList: []
-  },
   computed: {
     list () {
       return ['implementations', 'welcome', 'introduction', 'codebaseShow', 'ipsum', 'qui', 'et', 'quia', 'cupiditate', 'deserunt']
