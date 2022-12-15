@@ -4,7 +4,7 @@
       <div class="media">
         <div class="media-left">
           <figure class="image is-48x48">
-            <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            <img class="is-rounded" :src="author.image || 'https://bulma.io/images/placeholders/96x96.png'" alt="Placeholder image">
           </figure>
         </div>
         <div class="media-content">
@@ -12,7 +12,7 @@
             {{ author.username }}
           </p>
           <p class="subtitle is-6">
-            <time datetime="2016-1-1">{{ updatedAt }}</time>
+            <time>{{ dateTime }}</time>
           </p>
         </div>
       </div>
@@ -24,10 +24,10 @@
         <p>{{ description }}</p>
       </div>
       <div class="is-flex is-justify-content-space-between is-align-items-center">
-        <p>Read more...</p>
+        <p class="is-clickable">Read more...</p>
         <b-taglist class="pt-2 px-2">
           <b-tag
-            v-for='(tag, index) in tagList'
+            v-for="(tag, index) in tagList"
             :key="tag + index"
             class="has-background-white-ter has-text-grey is-clickable"
           >
@@ -40,8 +40,10 @@
 </template>
 
 <script>
+import dayjs from 'dayjs'
 import {
-  generateKey
+  generateKey,
+  isIsoDate
 } from '@/helpers'
 
 export default {
@@ -63,8 +65,17 @@ export default {
       required: false
     }
   },
+  computed: {
+    dateTime () {
+      if (isIsoDate(this.updatedAt)) {
+        return dayjs(this.updatedAt).format('DD/MM/YYYY, HH:mm')
+      }
+      return null
+    }
+  },
   methods: {
-    generateKey
+    generateKey,
+    isIsoDate
   }
 }
 </script>

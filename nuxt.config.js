@@ -30,15 +30,13 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    // https://go.nuxtjs.dev/eslint
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/eslint-module' // https://go.nuxtjs.dev/eslint
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    // https://go.nuxtjs.dev/buefy
-    'nuxt-buefy',
-    '@nuxtjs/axios'
+    'nuxt-buefy', // https://go.nuxtjs.dev/buefy
+    '@nuxtjs/axios' // https://go.nuxtjs.dev/axios
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
