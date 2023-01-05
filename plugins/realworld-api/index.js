@@ -6,7 +6,6 @@ export class RealWorld {
   }
 
   async getRealWorldArticles (limit, offset) {
-    console.log('here')
     const RES = await this.$axios.$get(`${REALWORLD_ARTICLES_API_URL}/articles?limit=${limit}&offset=${offset}`)
     return RES
   }

@@ -21,14 +21,10 @@
               placeholder="Text input"
               value=""
             >
-            <!-- <span>
-              <i class="fas fa-user"></i>
-            </span> -->
             <span class="icon is-small is-right">
               <i class="fas fa-check" />
             </span>
           </div>
-          <!-- <p class="help is-success">This username is available</p> -->
         </div>
 
         <div class="field">
@@ -67,7 +63,7 @@
 
         <div class="field is-grouped">
           <div class="control">
-            <button class="button is-link" @click="onSubmit">
+            <button :disabled="isSubmitting" class="button is-link" @click="onSubmit">
               Submit
             </button>
           </div>
@@ -84,6 +80,7 @@
 
 <script>
 import ValidationErrors from '@/components/validation-errors/ValidationErrors.vue'
+import { actionTypes } from '@/store/auth'
 
 export default {
   name: 'SignUpPage',
@@ -113,9 +110,12 @@ export default {
       return this.$store.state.auth.validationErrors
     }
   },
+  mounted () {
+    console.log('actionTypes', actionTypes.register)
+  },
   methods: {
     onSubmit () {
-      this.$store.dispatch('auth/register', { username: this.username, email: this.email, password: this.password }).then(() => { this.$router.push('/') })
+      this.$store.dispatch('auth/' + actionTypes.register, { username: this.username, email: this.email, password: this.password }).then(() => { this.$router.push('/') })
     }
   }
 }

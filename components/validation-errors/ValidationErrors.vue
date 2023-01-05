@@ -1,6 +1,6 @@
 <template>
   <ul class="validation-errors">
-    <li class="has-text-danger" v-for="errorMessage, index in errorMessages" :key="errorMessage + index">
+    <li v-for="errorMessage, index in errorMessages" :key="errorMessage + index" class="has-text-danger">
       {{ errorMessage }}
     </li>
   </ul>
