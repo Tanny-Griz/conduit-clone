@@ -1,5 +1,5 @@
 <template>
-  <section class="section">
+  <section class="sign-up-page section">
     <h2 class="title is-2 has-text-centered">
       Sign up
     </h2>
@@ -10,10 +10,14 @@
     </h6>
     <div class="columns is-centered">
       <div class="column is-7">
+        <!-- <p v-if="errorMessages">
+          {{ errorMessages }}
+        </p> -->
         <div class="field">
           <label class="label">Username</label>
           <div class="control has-icons-right">
             <input
+              v-model="username"
               class="input"
               type="text"
               placeholder="Text input"
@@ -33,6 +37,7 @@
           <label class="label">Email</label>
           <div class="control has-icons-right">
             <input
+              v-model="email"
               class="input"
               type="email"
               placeholder="Email input"
@@ -51,6 +56,7 @@
           <label class="label">Password</label>
           <div class="control has-icons-right">
             <input
+              v-model="password"
               class="input"
               type="password"
               placeholder=""
@@ -63,7 +69,7 @@
 
         <div class="field is-grouped">
           <div class="control">
-            <button class="button is-link">
+            <button class="button is-link" @click="onSubmit">
               Submit
             </button>
           </div>
@@ -81,9 +87,24 @@
 <script>
 export default {
   name: 'SignUpPage',
+  data () {
+    return {
+      email: '',
+      password: '',
+      username: '',
+      hasCredentialsError: false,
+      errors: [],
+      createdUser: ''
+    }
+  },
   head () {
     return {
       titleTemplate: 'Sign Up Page'
+    }
+  },
+  methods: {
+    onSubmit () {
+      this.$store.dispatch('auth/register', { username: this.username, email: this.email, password: this.password }).then(() => { this.$router.push('/') })
     }
   }
 }

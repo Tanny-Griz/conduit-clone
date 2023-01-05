@@ -22,7 +22,14 @@
 </template>
 
 <script>
-export default {
-  name: 'NavBar'
-}
+// export default {
+//   name: 'NavBar'
+// }
+import Vue from 'vue'
+
+export default Vue.extend({
+  name: 'NavBar',
+  components: {},
+  props: {}
+})
 </script>

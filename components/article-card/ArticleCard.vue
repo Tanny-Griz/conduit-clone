@@ -11,7 +11,7 @@
           <p class="title is-3">
             {{ author.username }}
           </p>
-          <p class="subtitle is-6">
+          <p class="subtitle has-text-grey-light is-7">
             <time>{{ dateTime }}</time>
           </p>
         </div>
@@ -24,7 +24,9 @@
         <p>{{ description }}</p>
       </div>
       <div class="is-flex is-justify-content-space-between is-align-items-center">
-        <p class="is-clickable">Read more...</p>
+        <p class="is-clickable">
+          Read more...
+        </p>
         <b-taglist class="pt-2 px-2">
           <b-tag
             v-for="(tag, index) in tagList"
@@ -50,18 +52,26 @@ export default {
   name: 'ArticleCard',
   props: {
     title: {
+      type: String,
+      default: '',
       required: false
     },
     description: {
+      type: String,
+      default: '',
       required: false
     },
     updatedAt: {
+      type: String,
       default: null
     },
     author: {
+      type: Object,
       default: null
     },
     tagList: {
+      type: Array,
+      default: () => [],
       required: false
     }
   },

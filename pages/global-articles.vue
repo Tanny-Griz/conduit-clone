@@ -3,9 +3,8 @@
     <PopularTagsRow />
     <div class="global-articles">
       <ArticleCard
-        v-for="(article) in realWorldArticles.articles"
-        :id="generateKey(article.title)"
-        :key="generateKey(article.title)"
+        v-for="(article, index) in realWorldArticles.articles"
+        :key="article.title + index"
         class="mb-6"
         :author="article.author"
         :title="article.title"
@@ -17,13 +16,9 @@
   </section>
 </template>
 
-<script>
+<script lang="js">
 import PopularTagsRow from '@/components/popular-tags-row/PopularTagsRow.vue'
 import ArticleCard from '@/components/article-card/ArticleCard.vue'
-
-import {
-  generateKey
-} from '@/helpers'
 
 export default {
   name: 'GlobalArticlesPage',
@@ -39,7 +34,7 @@ export default {
   }),
   async fetch () {
     await this.getRealWorldArticles()
-  //   await this.getRealWorldTags()
+    // await this.getRealWorldTags()
   },
   head () {
     return {
@@ -47,16 +42,13 @@ export default {
     }
   },
   methods: {
-    generateKey,
     async getRealWorldArticles () {
       try {
         this.realWorldArticles = await this.$realworld.getRealWorldArticles(10, 0)
-        console.log(this.realWorldArticles)
       } catch (error) {
         // TODO: Handle possible errors
       }
     }
-
     // async getRealWorldTags () {
     //   try {
     //     this.realWorldTags = await this.$realworld.getRealWorldTags()
