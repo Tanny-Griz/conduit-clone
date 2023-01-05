@@ -1,32 +1,16 @@
 <template>
-  <section class="sign-up-page section">
+  <section class="log-in-page section">
     <h2 class="title is-2 has-text-centered">
-      Sign up
+      Log in
     </h2>
     <h6 class="title is-6 has-text-centered">
-      <nuxt-link to="/sign-in">
-        Have an account?
+      <nuxt-link to="/sign-up">
+        Need an account?
       </nuxt-link>
     </h6>
     <div class="columns is-centered">
       <div class="column is-7">
         <ValidationErrors v-if="validationErrors" :validation-errors="validationErrors" />
-        <div class="field">
-          <label class="label">Username</label>
-          <div class="control has-icons-right">
-            <input
-              v-model="username"
-              class="input"
-              type="text"
-              placeholder="Text input"
-              value=""
-            >
-            <span class="icon is-small is-right">
-              <i class="fas fa-check" />
-            </span>
-          </div>
-        </div>
-
         <div class="field">
           <label class="label">Email</label>
           <div class="control has-icons-right">
@@ -60,12 +44,7 @@
         <div class="field is-grouped">
           <div class="control">
             <button :disabled="isSubmitting" class="button is-link" @click="onSubmit">
-              Submit
-            </button>
-          </div>
-          <div class="control">
-            <button class="button is-link is-light">
-              Cancel
+              Log in
             </button>
           </div>
         </div>
@@ -79,20 +58,19 @@ import ValidationErrors from '@/components/validation-errors/ValidationErrors.vu
 import { actionTypes } from '@/store/auth'
 
 export default {
-  name: 'SignUpPage',
+  name: 'LogInPage',
   components: {
     ValidationErrors
   },
   data () {
     return {
       email: '',
-      password: '',
-      username: ''
+      password: ''
     }
   },
   head () {
     return {
-      titleTemplate: 'Sign Up Page'
+      titleTemplate: 'Log in Page'
     }
   },
   computed: {
@@ -103,12 +81,9 @@ export default {
       return this.$store.state.auth.validationErrors
     }
   },
-  mounted () {
-    console.log('actionTypes', actionTypes.register)
-  },
   methods: {
     onSubmit () {
-      this.$store.dispatch('auth/' + actionTypes.register, { username: this.username, email: this.email, password: this.password }).then(() => { this.$router.push('/') })
+      this.$store.dispatch('auth/' + actionTypes.login, { email: this.email, password: this.password }).then(() => { this.$router.push('/') })
     }
   }
 }
