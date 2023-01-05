@@ -10,9 +10,7 @@
     </h6>
     <div class="columns is-centered">
       <div class="column is-7">
-        <!-- <p v-if="errorMessages">
-          {{ errorMessages }}
-        </p> -->
+        <ValidationErrors v-if="validationErrors" :validation-errors="validationErrors" />
         <div class="field">
           <label class="label">Username</label>
           <div class="control has-icons-right">
@@ -85,8 +83,13 @@
 </template>
 
 <script>
+import ValidationErrors from '@/components/validation-errors/ValidationErrors.vue'
+
 export default {
   name: 'SignUpPage',
+  components: {
+    ValidationErrors
+  },
   data () {
     return {
       email: '',
@@ -100,6 +103,14 @@ export default {
   head () {
     return {
       titleTemplate: 'Sign Up Page'
+    }
+  },
+  computed: {
+    isSubmitting () {
+      return this.$store.state.auth.isSubmitting
+    },
+    validationErrors () {
+      return this.$store.state.auth.validationErrors
     }
   },
   methods: {
