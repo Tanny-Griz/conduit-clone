@@ -7,29 +7,39 @@
     </template>
 
     <template #end>
-      <b-navbar-item tag="div">
-        <div class="buttons">
-          <nuxt-link to="sign-up" class="button has-background-info-dark has-text-white-bis">
-            <strong>Sign up</strong>
-          </nuxt-link>
-          <nuxt-link to="log-in" class="button has-background-grey-lighter">
-            Log in
-          </nuxt-link>
-        </div>
+      <b-navbar-item tag="div" class="is-flex is-align-items-center is-flex-wrap-wrap">
+        <nuxt-link v-if="!isLoggedIn" to="new-article" class="mr-3">
+          <b-icon icon="pencil-remove-outline" size="is-small" />
+          <strong>New article</strong>
+        </nuxt-link>
+        <nuxt-link v-if="!isLoggedIn" to="settings" class="mr-3">
+          <b-icon icon="cog-outline" size="is-small" />
+          <strong>Settings</strong>
+        </nuxt-link>
+        <nuxt-link to="sign-up" class="mr-3">
+          <strong>Sign up</strong>
+        </nuxt-link>
+        <nuxt-link to="log-in" class="mr-3">
+          <strong>Log in</strong>
+        </nuxt-link>
       </b-navbar-item>
     </template>
   </b-navbar>
 </template>
 
 <script>
-// export default {
-//   name: 'NavBar'
-// }
-import Vue from 'vue'
-
-export default Vue.extend({
+export default {
   name: 'NavBar',
-  components: {},
-  props: {}
-})
+  computed: {
+    currentUser () {
+      return this.$store.state.auth.currentUser
+    },
+    isLoggedIn () {
+      return this.$store.state.auth.isLoggedIn
+    }
+  },
+  mounted () {
+    console.log(this.$store.state.auth.currentUser)
+  }
+}
 </script>

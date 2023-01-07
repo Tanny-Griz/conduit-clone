@@ -14,13 +14,12 @@
 </template>
 
 <script>
-import Vue from 'vue'
-export default Vue.extend({
+export default {
   name: 'IndexPage',
   head () {
     return {
       titleTemplate: 'General Page'
     }
   }
-})
+}
 </script>
