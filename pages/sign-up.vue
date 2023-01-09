@@ -103,9 +103,6 @@ export default {
       return this.$store.state.auth.validationErrors
     }
   },
-  mounted () {
-    console.log('actionTypes', actionTypes.register)
-  },
   methods: {
     onSubmit () {
       this.$store.dispatch('auth/' + actionTypes.register, { username: this.username, email: this.email, password: this.password }).then(() => { this.$router.push('/') })
