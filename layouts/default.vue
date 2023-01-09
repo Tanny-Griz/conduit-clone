@@ -46,5 +46,9 @@ export default {
       ]
     }
   }
+  // mounted () {
+  //   this.$store.dispatch('auth/' + actionTypes.getCurrentUser)
+  //   console.log('currentUser', this.currentUser)
+  // }
 }
 </script>

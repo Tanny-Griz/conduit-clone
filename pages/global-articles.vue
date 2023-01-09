@@ -1,61 +1,34 @@
 <template>
   <section class="global-articles-page section">
     <PopularTagsRow />
-    <div class="global-articles">
-      <ArticleCard
-        v-for="(article, index) in realWorldArticles.articles"
-        :key="article.title + index"
-        class="mb-6"
-        :author="article.author"
-        :title="article.title"
-        :description="article.description"
-        :tag-list="article.tagList"
-        :updated-at="article.updatedAt"
-      />
-    </div>
+    <ArticlesWrapperVue :api-url="apiUrl" />
   </section>
 </template>
 
-<script lang="js">
+<script>
 import PopularTagsRow from '@/components/popular-tags-row/PopularTagsRow.vue'
-import ArticleCard from '@/components/article-card/ArticleCard.vue'
+import ArticlesWrapperVue from '@/components/articles-wrapper/ArticlesWrapper.vue'
 
 export default {
   name: 'GlobalArticlesPage',
   components: {
     PopularTagsRow,
-    ArticleCard
+    ArticlesWrapperVue
   },
-  data: () => ({
-    realWorldArticles: [],
-    realWorldTags: [],
-    limitOfArticles: 10,
-    offset: 0
-  }),
+  data: () => {
+    return {
+      apiUrl: '/articles'
+      // realWorldTags: [],
+    }
+  },
   async fetch () {
-    await this.getRealWorldArticles()
+    // await this.getRealWorldArticles()
     // await this.getRealWorldTags()
   },
   head () {
     return {
-      titleTemplate: 'Global Articles Page'
+      titleTemplate: 'Global Articles Page' // to change
     }
-  },
-  methods: {
-    async getRealWorldArticles () {
-      try {
-        this.realWorldArticles = await this.$realworld.getRealWorldArticles(10, 0)
-      } catch (error) {
-        // TODO: Handle possible errors
-      }
-    }
-    // async getRealWorldTags () {
-    //   try {
-    //     this.realWorldTags = await this.$realworld.getRealWorldTags()
-    //   } catch (error) {
-    //     // TODO: Handle possible errors
-    //   }
-    // }
   }
 }
 </script>
