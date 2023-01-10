@@ -1,6 +1,6 @@
 
 import axios from 'axios'
-import { getItem } from '@/helpers/local-storage'
+import { getItem } from '@/helpers'
 
 export const BASE_API_URL = 'https://conduit.productionready.io/api' || ''
 

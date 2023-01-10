@@ -54,7 +54,6 @@
 <script>
 import dayjs from 'dayjs'
 import {
-  generateKey,
   isIsoDate
 } from '@/helpers'
 
@@ -98,7 +97,6 @@ export default {
     }
   },
   methods: {
-    generateKey,
     isIsoDate
   }
 }

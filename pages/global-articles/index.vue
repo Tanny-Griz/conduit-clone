@@ -1,19 +1,19 @@
 <template>
   <section class="global-articles-page section">
     <PopularTagsRow />
-    <ArticlesWrapperVue :api-url="apiUrl" />
+    <ArticlesWrapper :api-url="apiUrl" />
   </section>
 </template>
 
 <script>
 import PopularTagsRow from '@/components/popular-tags-row/PopularTagsRow.vue'
-import ArticlesWrapperVue from '@/components/articles-wrapper/ArticlesWrapper.vue'
+import ArticlesWrapper from '@/components/articles-wrapper/ArticlesWrapper.vue'
 
 export default {
   name: 'GlobalArticlesPage',
   components: {
     PopularTagsRow,
-    ArticlesWrapperVue
+    ArticlesWrapper
   },
   data: () => {
     return {
