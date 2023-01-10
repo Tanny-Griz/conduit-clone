@@ -3,7 +3,7 @@
     <div class="card-content">
       <template v-if="isLoading">
         <b-skeleton height="24" />
-        <b-skeleton></b-skeleton>
+        <b-skeleton />
       </template>
       <template v-else>
         <div class="media">
@@ -12,13 +12,16 @@
               <img class="is-rounded" :src="author.image || 'https://bulma.io/images/placeholders/96x96.png'" alt="Placeholder image">
             </figure>
           </div>
-          <div class="media-content">
-            <p class="title is-3">
+          <div class="is-flex is-flex-direction-column">
+            <nuxt-link :to="`/user-profile/` + author.username.split(' ').join('-')" class="title is-inline-flex is-3">
               {{ author.username }}
-            </p>
+            </nuxt-link>
             <p class="subtitle has-text-grey-light is-7">
               <time>{{ dateTime }}</time>
             </p>
+          </div>
+          <div class="favourite ml-auto">
+            <b-icon is-clicable icon="heart-outline" size="is-normal" />
           </div>
         </div>
         <div class="content">
@@ -98,3 +101,21 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+@import '@/assets/styles/base/colors.scss';
+
+.card {
+  // .media-favourite {
+  //   position: absolute;
+  //   top: 20px;
+  //   right: 20px;
+  // }
+  .media-content a {
+    transition: all 0.3s;
+    &:hover {
+      color: $link;
+    }
+  }
+}
+</style>

@@ -1,6 +1,5 @@
 <template>
   <div class="articles-wrapper">
-    <p>articles-wrapper</p>
     <ArticleCard
       v-for="(article, index) in realWorldArticles.articles"
       :key="article.title + index"
@@ -46,6 +45,7 @@ export default {
       try {
         this.realWorldArticles = await this.$realworld.getRealWorldArticles(this.apiUrl, 10, 0)
         this.isLoading = false
+        console.log(this.realWorldArticles)
       } catch (error) {
         // TODO: Handle possible errors
       }
