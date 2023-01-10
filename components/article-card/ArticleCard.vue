@@ -40,7 +40,9 @@
               :key="tag + index"
               class="has-background-white-ter has-text-grey is-clickable"
             >
-              {{ tag }}
+              <nuxt-link :to="`/tags/` + tag">
+                {{ tag }}
+              </nuxt-link>
             </b-tag>
           </b-taglist>
         </div>

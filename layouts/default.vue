@@ -37,11 +37,11 @@ export default {
         },
         {
           title: 'Global Articles',
-          to: { name: 'global-articles' }
+          to: { name: 'GlobalArticles' }
         },
         {
           title: 'Your Articles',
-          to: { name: 'your-articles' }
+          to: { name: 'YourArticles' }
         }
       ]
     }
