@@ -1,24 +1,33 @@
 <template>
-  <section class="section">
-    <div>
-      <p>
-        Hey! You are on a site clone
-        all api is taken from there. You can: - register; - edit your data; -
-        write your article; - add tags to your articles; - view global articles; -
-        add favorite posts to favorites; - filter articles by popular tags; - go
-        to the user's page, see all the articles of this user and also subscribe
-        to the user you like
-      </p>
-    </div>
+  <section class="global-articles-page section">
+    <PopularTagsRow />
+    <ArticlesWrapper :api-url="apiUrl" />
   </section>
 </template>
 
 <script>
+import PopularTagsRow from '@/components/popular-tags-row/PopularTagsRow.vue'
+import ArticlesWrapper from '@/components/articles-wrapper/ArticlesWrapper.vue'
+
 export default {
-  name: 'IndexPage',
+  name: 'GlobalArticles',
+  components: {
+    PopularTagsRow,
+    ArticlesWrapper
+  },
+  data: () => {
+    return {
+      apiUrl: 'articles'
+      // realWorldTags: [],
+    }
+  },
+  async fetch () {
+    // await this.getRealWorldArticles()
+    // await this.getRealWorldTags()
+  },
   head () {
     return {
-      titleTemplate: 'General Page'
+      titleTemplate: 'Global Articles' // to change
     }
   }
 }

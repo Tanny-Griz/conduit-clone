@@ -2,7 +2,7 @@
   <div class="articles-wrapper">
     <div>
       <ArticleCard
-        v-for="(article, index) in realWorldArticles.articles"
+        v-for="(article, index) in articles"
         :key="article.title + index"
         class="mb-6"
         :is-loading="isLoading"
@@ -13,13 +13,14 @@
         :updated-at="article.updatedAt"
       />
     </div>
-    <Pagination :total="total" :limit="limitOfArticles" :current-page="currentPage" :url="url" />
+    <Pagination :total="articlesCount" :limit="limitOfArticles" :current-page="currentPage" :url="baseUrl" />
   </div>
 </template>
 
 <script>
 import ArticleCard from '@/components/article-card/ArticleCard.vue'
 import Pagination from '@/components/pagination/Pagination.vue'
+import { limitOfArticles } from '@/helpers'
 
 export default {
   name: 'ArticlesWrapper',
@@ -36,24 +37,38 @@ export default {
   data: () => {
     return {
       isLoading: false,
-      realWorldArticles: [],
-      limitOfArticles: 10,
-      offset: 0,
-      total: 500,
-      currentPage: 5,
-      url: '/tags/dragons'
+      articles: [],
+      articlesCount: null,
+      limitOfArticles
     }
   },
   async fetch () {
     await this.getRealWorldArticles()
   },
+  computed: {
+    currentPage () {
+      return Number(this.$route.query.page) || 1
+    },
+    baseUrl () {
+      return this.$route.path
+    },
+    offset () {
+      return this.currentPage * this.limitOfArticles - this.limitOfArticles // p 1 * 10 - 10 = 0, p 2 * 10 - 10 = 10
+    }
+  },
+  watch: {
+    currentPage () {
+      this.getRealWorldArticles()
+    }
+  },
   methods: {
     async getRealWorldArticles () {
       this.isLoading = true
       try {
-        this.realWorldArticles = await this.$realworld.getRealWorldArticles(this.apiUrl, 10, 0)
+        const realWorldArticles = await this.$realworld.getRealWorldArticles(this.apiUrl, this.limitOfArticles, this.offset)
+        this.articles = realWorldArticles.articles
+        this.articlesCount = realWorldArticles.articlesCount
         this.isLoading = false
-        console.log(this.realWorldArticles)
       } catch (error) {
         // TODO: Handle possible errors
       }

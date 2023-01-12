@@ -36,19 +36,11 @@ export default {
           to: { name: 'index' }
         },
         {
-          title: 'Global Articles',
-          to: { name: 'global-articles' }
-        },
-        {
           title: 'Your Articles',
           to: { name: 'your-articles' }
         }
       ]
     }
   }
-  // mounted () {
-  //   this.$store.dispatch('auth/' + actionTypes.getCurrentUser)
-  //   console.log('currentUser', this.currentUser)
-  // }
 }
 </script>
