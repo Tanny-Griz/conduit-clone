@@ -1,15 +1,16 @@
 <template>
-  <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-    <a class="pagination-previous"><b-icon icon="arrow-left" size="is-small" /></a>
-    <a class="pagination-next"><b-icon icon="arrow-right" size="is-small" /></a>
-    <ul class="pagination-list">
-      <li v-for="page in pages" :key="page">
-        <NuxtLink :to="{path: url, query: {page: page}}" :class="{'is-current': currentPage === page }" class="pagination-link" exact-active-class="has-background-info-dark has-text-white-bis">
-          {{ page }}
-        </NuxtLink>
-      </li>
-    </ul>
-  </nav>
+  <b-pagination
+    v-model="current"
+    :total="total"
+    :range-before="rangeBefore"
+    :range-after="rangeAfter"
+    :order="order"
+    :size="size"
+    :per-page="perPage"
+    aria-page-label="Page"
+    aria-current-label="Current page"
+    @change="onChange"
+  />
 </template>
 
 <script>
@@ -26,24 +27,30 @@ export default {
       type: Number,
       required: true
     },
-    currentPage: {
-      type: Number,
-      required: true
-    },
     url: {
       type: String,
       required: true
     }
   },
-  data: () => {
+  data () {
     return {
-      startPage: 1
+      current: +this.$route.query.page || 1,
+      size: 'is-small',
+      perPage: 10,
+      rangeBefore: 3,
+      rangeAfter: 1,
+      order: ''
     }
   },
   computed: {
     pages () {
       const pagesCount = Math.ceil(this.total / this.limit)
       return range(this.startPage, pagesCount)
+    }
+  },
+  methods: {
+    onChange () {
+      this.$emit('currentPageChange', this.current)
     }
   }
 }

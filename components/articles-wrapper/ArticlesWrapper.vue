@@ -13,7 +13,12 @@
         :updated-at="article.updatedAt"
       />
     </div>
-    <Pagination :total="articlesCount" :limit="limitOfArticles" :current-page="currentPage" :url="baseUrl" />
+    <Pagination
+      :total="articlesCount"
+      :limit="limitOfArticles"
+      :url="baseUrl"
+      @currentPageChange="onCurrentPageChange"
+    />
   </div>
 </template>
 
@@ -47,7 +52,7 @@ export default {
   },
   computed: {
     currentPage () {
-      return Number(this.$route.query.page) || 1
+      return +this.$route.query.page || 1
     },
     baseUrl () {
       return this.$route.path
@@ -62,6 +67,11 @@ export default {
     }
   },
   methods: {
+    onCurrentPageChange (current) {
+      this.$router.push({
+        query: { ...this.$route.query, page: current.toString() }
+      })
+    },
     async getRealWorldArticles () {
       this.isLoading = true
       try {
