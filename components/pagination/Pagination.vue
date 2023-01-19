@@ -14,7 +14,6 @@
 </template>
 
 <script>
-import { range } from '@/helpers'
 
 export default {
   name: 'PaginationComponent',
@@ -30,22 +29,31 @@ export default {
     url: {
       type: String,
       required: true
+    },
+    size: {
+      type: String,
+      required: false
+    },
+    perPage: {
+      type: Number,
+      required: true
+    },
+    rangeBefore: {
+      type: Number,
+      required: true
+    },
+    rangeAfter: {
+      type: Number,
+      required: true
+    },
+    order: {
+      type: String,
+      required: false
     }
   },
   data () {
     return {
-      current: +this.$route.query.page || 1,
-      size: 'is-small',
-      perPage: 10,
-      rangeBefore: 3,
-      rangeAfter: 1,
-      order: ''
-    }
-  },
-  computed: {
-    pages () {
-      const pagesCount = Math.ceil(this.total / this.limit)
-      return range(this.startPage, pagesCount)
+      current: +this.$route.query.page || 1
     }
   },
   methods: {

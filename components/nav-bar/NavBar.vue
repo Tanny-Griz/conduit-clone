@@ -51,7 +51,7 @@ export default {
   },
   mounted () {
     this.$store.dispatch('auth/' + actionTypes.getCurrentUser)
-    console.log('currentUser', this.currentUser)
+    console.log('currentUser from navbar', this.currentUser)
   }
 }
 </script>

@@ -3,11 +3,18 @@
     <h2 class="has-text-info has-text-weight-bold mb-3 pt-2 px-2">
       Popular Tags
     </h2>
-    <b-taglist class="pt-2 px-2">
-      <b-tag v-for="item in list" :key="item" class="has-background-grey-lighter is-clickable">
-        {{ item }}
-      </b-tag>
-    </b-taglist>
+    <template v-if="isLoading">
+      <div class="p-2">
+        <b-skeleton />
+      </div>
+    </template>
+    <template v-else>
+      <b-taglist class="pt-2 px-2">
+        <b-tag v-for="tag in tags" :key="tag" class="has-background-grey-lighter is-clickable">
+          {{ tag }}
+        </b-tag>
+      </b-taglist>
+    </template>
   </div>
 </template>
 
@@ -15,9 +22,15 @@
 
 export default {
   name: 'PopularTagsRow',
-  computed: {
-    list () {
-      return ['implementations', 'welcome', 'introduction', 'codebaseShow', 'ipsum', 'qui', 'et', 'quia', 'cupiditate', 'deserunt']
+  props: {
+    isLoading: {
+      type: Boolean,
+      default: false
+    },
+    tags: {
+      type: Array,
+      default: () => [],
+      required: false
     }
   }
 }

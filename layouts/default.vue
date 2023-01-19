@@ -36,8 +36,8 @@ export default {
           to: { name: 'index' }
         },
         {
-          title: 'Your Articles',
-          to: { name: 'your-articles' }
+          title: 'Articles of Followed',
+          to: { name: 'articles-of-followed' }
         }
       ]
     }
