@@ -1,5 +1,6 @@
 <template>
   <b-pagination
+    v-if="total"
     v-model="current"
     :total="total"
     :range-before="rangeBefore"
