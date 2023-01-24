@@ -1,16 +1,16 @@
 <template>
   <section class="articles-of-followed-page section">
-    <h1 v-if="!isLoggedIn" class="has-text-weight-bold">
+    <PopularTagsRow
+      :is-loading="isLoadingTags"
+      :tags="tags"
+    />
+    <h1 v-if="isLoggedIn" class="has-text-weight-bold">
       To view articles by featured authors, you must <nuxt-link to="sign-up">
         register
       </nuxt-link> or <nuxt-link to="/log-in">
         log in
       </nuxt-link> your account and follow the user
     </h1>
-    <PopularTagsRow
-      :is-loading="isLoadingTags"
-      :tags="tags"
-    />
     <ArticleCommon :api-url="apiUrl" />
   </section>
 </template>

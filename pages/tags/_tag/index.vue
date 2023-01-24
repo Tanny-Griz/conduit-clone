@@ -4,7 +4,9 @@
       :is-loading="isLoadingTags"
       :tags="tags"
     />
-    <h1 class="mb-3">Results of <strong>{{ tagName }}</strong> tag</h1>
+    <h1 class="mb-3">
+      Results of <strong>{{ tagName }}</strong> tag
+    </h1>
     <ArticleCommon :api-url="apiUrl" :tag-name="tagName" />
   </section>
 </template>
