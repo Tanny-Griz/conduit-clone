@@ -4,7 +4,7 @@
 
 const errorHandler = ({ $axios, redirect, route }) => {
   $axios.onError((error) => {
-    console.log('error', error)
+    console.log('error from errorHandler', error)
   })
 }
 

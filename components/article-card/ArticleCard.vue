@@ -31,9 +31,9 @@
           <p>{{ description }}</p>
         </div>
         <div class="is-flex is-justify-content-space-between is-align-items-center">
-          <p class="is-clickable">
+          <nuxt-link :to="`/article/` + slug">
             Read more...
-          </p>
+          </nuxt-link>
           <b-taglist class="pt-2 px-2">
             <b-tag
               v-for="(tag, index) in tagList"
@@ -85,6 +85,10 @@ export default {
     tagList: {
       type: Array,
       default: () => [],
+      required: false
+    },
+    slug: {
+      type: String,
       required: false
     }
   },

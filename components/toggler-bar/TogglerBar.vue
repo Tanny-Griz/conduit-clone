@@ -1,5 +1,5 @@
 <template>
-  <div class="toggler-bar section pb-0">
+  <div class="toggler-bar section pb-2">
     <ul class="menu-list is-flex">
       <li>
         <NuxtLink :to="'/'" exact-active-class="has-background-info-dark has-text-white-bis">

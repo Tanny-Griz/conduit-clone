@@ -1,5 +1,5 @@
 <template>
-  <div class="unexpected-error-page">
+  <div class="unexpected-error-page section">
     <h1 class="has-text-weight-bold">
       Unexpected Error Page
     </h1>

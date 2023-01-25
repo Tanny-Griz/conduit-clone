@@ -11,6 +11,7 @@
         :description="article.description"
         :tag-list="article.tagList"
         :updated-at="article.updatedAt"
+        :slug="article.slug"
       />
     </div>
     <Pagination
