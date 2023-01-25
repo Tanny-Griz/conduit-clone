@@ -16,7 +16,7 @@ axios.interceptors.response.use((response) => {
   console.log('error.response.status', error.response.status)
   if (error.response.status === 404) {
     window.location = '/no-access'
-  } else if ((err?.toJSON()).message === 'Network Error') {
+  } else if ((error?.toJSON()).message === 'Network Error') {
     window.location = '/unexpected-error'
   } else {
     return Promise.reject(error)
