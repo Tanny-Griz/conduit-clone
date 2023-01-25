@@ -21,7 +21,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '@/plugins/console-log'
+    '@/plugins/console-log',
+    '@/plugins/error-handler'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

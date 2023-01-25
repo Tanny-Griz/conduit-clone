@@ -4,13 +4,6 @@
       :is-loading="isLoadingTags"
       :tags="tags"
     />
-    <h1 v-if="isLoggedIn" class="has-text-weight-bold">
-      To view articles by featured authors, you must <nuxt-link to="sign-up">
-        register
-      </nuxt-link> or <nuxt-link to="/log-in">
-        log in
-      </nuxt-link> your account and follow the user
-    </h1>
     <ArticleCommon :api-url="apiUrl" />
   </section>
 </template>
@@ -40,11 +33,6 @@ export default {
   head () {
     return {
       titleTemplate: 'Your Articles Page'
-    }
-  },
-  computed: {
-    isLoggedIn () {
-      return this.$store.getters['auth/isLoggedIn']
     }
   },
   methods: {

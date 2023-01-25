@@ -1,9 +1,8 @@
 <template>
-  <div class="no-access-page">
+  <div class="no-access-page section">
     <h1 class="has-text-weight-bold">
       No Access Page
     </h1>
-    <p>404</p>
   </div>
 </template>
 

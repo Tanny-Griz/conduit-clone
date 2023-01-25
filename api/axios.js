@@ -10,4 +10,14 @@ axios.interceptors.request.use((config) => {
   return config
 })
 
+axios.interceptors.response.use((response) => {
+  return response
+}, function (error) {
+  console.log('kkk', error.response.status)
+  if (error.response.status === 401) {
+    // window.location.href = '/log-in'
+  } else {
+    return Promise.reject(error)
+  }
+})
 export default axios

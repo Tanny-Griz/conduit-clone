@@ -16,10 +16,10 @@
           <b-icon icon="cog-outline" size="is-small" />
           <strong>Settings</strong>
         </nuxt-link>
-        <nuxt-link v-if="!isLoggedIn" to="sign-up" class="mr-3">
+        <nuxt-link v-if="!isLoggedIn" to="/sign-up" class="mr-3">
           <strong>Sign up</strong>
         </nuxt-link>
-        <nuxt-link v-if="!isLoggedIn" to="log-in" class="mr-3">
+        <nuxt-link v-if="!isLoggedIn" to="/log-in" class="mr-3">
           <strong>Log in</strong>
         </nuxt-link>
         <nuxt-link v-if="currentUser" to="" class="is-flex mr-3">
@@ -51,7 +51,6 @@ export default {
   },
   mounted () {
     this.$store.dispatch('auth/' + actionTypes.getCurrentUser)
-    console.log('currentUser from navbar', this.currentUser)
   }
 }
 </script>
