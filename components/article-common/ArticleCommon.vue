@@ -16,7 +16,7 @@
     </div>
     <Pagination
       :total="articlesCount"
-      :limit="limitOfArticles"
+      :limit="limit"
       :url="baseUrl"
       :size="size"
       :per-page="perPage"
@@ -29,10 +29,11 @@
 </template>
 
 <script>
+import queryString from 'query-string'
 import articles from '@/api/articles'
 import ArticleCard from '@/components/article-card/ArticleCard.vue'
 import Pagination from '@/components/pagination/Pagination.vue'
-import { limitOfArticles } from '@/helpers'
+import { limit } from '@/helpers'
 
 export default {
   name: 'ArticleCommon',
@@ -55,7 +56,7 @@ export default {
       articles: [],
       isLoadingArticles: false,
       articlesCount: 0,
-      limitOfArticles,
+      limit,
       size: 'is-small',
       perPage: 10,
       rangeBefore: 3,
@@ -74,13 +75,17 @@ export default {
       return this.$route.path
     },
     offset () {
-      return this.currentPage * this.limitOfArticles - this.limitOfArticles // p 1 * 10 - 10 = 0, p 2 * 10 - 10 = 10
+      return this.currentPage * this.limit - this.limit // p 1 * 10 - 10 = 0, p 2 * 10 - 10 = 10
     }
   },
   watch: {
     currentPage () {
       this.getRealWorldArticles()
     }
+  },
+  mounted () {
+    const parsed = queryString.parse(location.search)
+    console.log('parsed', parsed)
   },
   methods: {
     onCurrentPageChange (current) {
@@ -90,14 +95,19 @@ export default {
     },
     async getRealWorldArticles () {
       this.isLoadingArticles = true
+      const parsedUrl = queryString.parse(this.apiUrl)
+      const stringifiedParams = queryString.stringify({
+        limit,
+        offset: this.offset
+      })
       try {
         if (this.tagName) {
-          const apiUrlWithParams = `${this.apiUrl}?tag=${this.tagName}&limit=${this.limitOfArticles}$offset=${this.offset}`
+          const apiUrlWithParams = `${this.apiUrl}?tag=${this.tagName}&${stringifiedParams}`
           const realWorldArticles = await articles.getRealWorldArticles(apiUrlWithParams)
           this.articles = realWorldArticles.data.articles
           this.articlesCount = realWorldArticles.data.articlesCount
         } else {
-          const apiUrlWithParams = `${this.apiUrl}?limit=${this.limitOfArticles}$offset=${this.offset}`
+          const apiUrlWithParams = `${this.apiUrl}?${stringifiedParams}`
           const realWorldArticles = await articles.getRealWorldArticles(apiUrlWithParams)
           this.articles = realWorldArticles.data.articles
           this.articlesCount = realWorldArticles.data.articlesCount

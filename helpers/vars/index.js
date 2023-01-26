@@ -1,1 +1,1 @@
-export const limitOfArticles = 10
+export const limit = 10
