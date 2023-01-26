@@ -95,7 +95,6 @@ export default {
     },
     async getRealWorldArticles () {
       this.isLoadingArticles = true
-      const parsedUrl = queryString.parse(this.apiUrl)
       const stringifiedParams = queryString.stringify({
         limit,
         offset: this.offset
