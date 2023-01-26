@@ -1,6 +1,9 @@
 <template>
   <section class="global-articles-page section">
-    <PopularTagsRow
+    <h2 class="has-text-info has-text-weight-bold mb-3 pt-2 px-2">
+      Popular Tags
+    </h2>
+    <TagList
       :is-loading="isLoadingTags"
       :tags="tags"
     />
@@ -11,12 +14,12 @@
 <script>
 import tags from '@/api/tags'
 import ArticleCommon from '@/components/article-common/ArticleCommon.vue'
-import PopularTagsRow from '@/components/popular-tags-row/PopularTagsRow.vue'
+import TagList from '@/components/tag-list/TagList.vue'
 
 export default {
   name: 'GlobalArticles',
   components: {
-    PopularTagsRow,
+    TagList,
     ArticleCommon
   },
   data () {

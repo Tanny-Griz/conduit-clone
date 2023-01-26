@@ -1,8 +1,5 @@
 <template>
-  <div class="popular-tags-row has-background-light mb-6">
-    <h2 class="has-text-info has-text-weight-bold mb-3 pt-2 px-2">
-      Popular Tags
-    </h2>
+  <div class="tag-list has-background-light mb-6">
     <template v-if="isLoading">
       <div class="p-2">
         <b-skeleton />
@@ -23,7 +20,7 @@
 <script>
 
 export default {
-  name: 'PopularTagsRow',
+  name: 'TagList',
   props: {
     isLoading: {
       type: Boolean,

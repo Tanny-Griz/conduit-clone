@@ -14,7 +14,15 @@
             <p><time>{{ dateTime }}</time></p>
           </div>
         </div>
-        <div class="is-flex is-flex-wrap-wrap">
+        <div v-if="isAuthor" class="is-flex is-flex-wrap-wrap">
+          <b-button type="is-light" class="m-1">
+            <b-icon class="mr-1" is-clicable icon="pencil-outline" size="is-small" />Edit
+          </b-button>
+          <b-button type="is-primary" class="m-1" @click="onDeleteArticle(article.slug)">
+            <b-icon class="mr-1" is-clicable icon="delete" size="is-small" />Delete
+          </b-button>
+        </div>
+        <div v-else class="is-flex is-flex-wrap-wrap">
           <b-button type="is-light" class="m-1">
             <b-icon class="mr-1" is-clicable icon="plus" size="is-small" />Follow {{ article.author.username }}
           </b-button>
@@ -26,17 +34,10 @@
     </div>
     <div v-if="article" class="section">
       <p>{{ article.description }}</p>
-      <b-taglist class="pt-2 px-2">
-        <b-tag
-          v-for="(tag, index) in article.tagList"
-          :key="tag + index"
-          class="has-background-white-ter has-text-grey is-clickable"
-        >
-          <nuxt-link :to="`/tags/` + tag">
-            {{ tag }}
-          </nuxt-link>
-        </b-tag>
-      </b-taglist>
+      <TagList
+        :is-loading="isLoadingTags"
+        :tags="article.tagList"
+      />
       <hr>
     </div>
   </div>
@@ -45,12 +46,17 @@
 <script>
 import dayjs from 'dayjs'
 import article from '@/api/article'
+import TagList from '@/components/tag-list/TagList.vue'
+
 import {
   isIsoDate
 } from '@/helpers'
 
 export default {
   name: 'ArticlePage',
+  components: {
+    TagList
+  },
   async asyncData ({ params }) {
     const data = await article.getArticle(params.id)
     return { article: data }
@@ -69,6 +75,15 @@ export default {
         return dayjs(this.updatedAt).format('MMM DD, YYYY')
       }
       return null
+    },
+    currentUser () {
+      return this.$store.getters['auth/currentUser']
+    },
+    isAuthor () {
+      if (!this.currentUser || !this.article) {
+        return false
+      }
+      return this.currentUser.username === this.article.author.username
     }
   },
   methods: {
@@ -77,7 +92,13 @@ export default {
       try {
         const realWorldArticle = await article.getArticle(this.$route.params.id)
         this.article = realWorldArticle
-        console.log('realWorldArticle', realWorldArticle)
+      } catch (error) {
+        // TODO: Handle possible errors
+      }
+    },
+    async onDeleteArticle (slug) {
+      try {
+        await article.deleteArticle(slug).then(() => this.$router.push('/'))
       } catch (error) {
         // TODO: Handle possible errors
       }

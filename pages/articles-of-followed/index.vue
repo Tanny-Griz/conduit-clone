@@ -1,6 +1,9 @@
 <template>
   <section class="articles-of-followed-page section">
-    <PopularTagsRow
+    <h2 class="has-text-info has-text-weight-bold mb-3 pt-2 px-2">
+      Popular Tags
+    </h2>
+    <TagList
       :is-loading="isLoadingTags"
       :tags="tags"
     />
@@ -10,14 +13,14 @@
 
 <script>
 import tags from '@/api/tags'
-import PopularTagsRow from '@/components/popular-tags-row/PopularTagsRow.vue'
+import TagList from '@/components/tag-list/TagList.vue'
 import ArticleCommon from '@/components/article-common/ArticleCommon.vue'
 
 export default {
   name: 'YourArticlesPage',
   components: {
     ArticleCommon,
-    PopularTagsRow
+    TagList
   },
   data () {
     return {
