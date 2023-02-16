@@ -89,6 +89,7 @@ export default {
     },
     slug: {
       type: String,
+      default: '',
       required: false
     }
   },

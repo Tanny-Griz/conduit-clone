@@ -33,6 +33,7 @@ export default {
     },
     size: {
       type: String,
+      default: '',
       required: false
     },
     perPage: {
@@ -49,6 +50,7 @@ export default {
     },
     order: {
       type: String,
+      default: '',
       required: false
     }
   },

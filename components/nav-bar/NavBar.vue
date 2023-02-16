@@ -1,8 +1,8 @@
 <template>
   <b-navbar type="is-light">
     <template #brand>
-      <b-navbar-item tag="router-link" :to="{ path: '/' }">
-        Realworld
+      <b-navbar-item tag="router-link" class="has-text-dark has-text-weight-bold" :to="{ path: '/' }">
+        Conduit clone
       </b-navbar-item>
     </template>
 

@@ -48,6 +48,7 @@ export default {
     },
     tagName: {
       type: String,
+      default: '',
       required: false
     }
   },
@@ -82,10 +83,6 @@ export default {
     currentPage () {
       this.getRealWorldArticles()
     }
-  },
-  mounted () {
-    const parsed = queryString.parse(location.search)
-    console.log('parsed', parsed)
   },
   methods: {
     onCurrentPageChange (current) {

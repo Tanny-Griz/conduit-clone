@@ -20,11 +20,6 @@ export default {
   components: {
     ArticleForm
   },
-  head () {
-    return {
-      titleTemplate: 'Edit Article'
-    }
-  },
   async asyncData ({ params }) {
     try {
       const data = await article.getArticle(params.id)
@@ -36,6 +31,11 @@ export default {
   data () {
     return {
       validationErrors: {}
+    }
+  },
+  head () {
+    return {
+      titleTemplate: 'Edit Article'
     }
   },
   computed: {

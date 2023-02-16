@@ -42,6 +42,7 @@ export default {
     },
     validationErrors: {
       type: Object,
+      default: () => {},
       required: false
     },
     isSubmitting: {
