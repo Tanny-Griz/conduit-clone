@@ -49,23 +49,6 @@ export default {
       return this.currentPage * this.limitOfArticles - this.limitOfArticles // p 1 * 10 - 10 = 0, p 2 * 10 - 10 = 10
     }
   },
-  mounted () {
-    // const arr = [0, 2, 4, 5, 7, 9, 11, 12, 13]
-    // const d = []
-    // function aaa (arr) {
-    // // Traverse array from index 1 to n-2
-    // // and check for the given condition
-    //   for (let i = 0; i <= arr.length; i++) {
-    //     if (arr[i] + 1 === arr[i + 1]) {
-    //       if (arr[i] + 2 === arr[i + 2]) {
-    //         console.log('ooo: ', arr[i])
-    //       }
-    //     }
-    //   }
-    // }
-    // aaa(arr)
-    // console.log('d: ', d)
-  },
   methods: {
     async getRealWorldTags () {
       this.isLoadingTags = true

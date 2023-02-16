@@ -35,7 +35,7 @@
     <div v-if="article" class="section">
       <p>{{ article.description }}</p>
       <TagList
-        :is-loading="isLoadingTags"
+        v-if="article.tagList.length"
         :tags="article.tagList"
       />
       <hr>

@@ -8,11 +8,11 @@
 
     <template #end>
       <b-navbar-item tag="div" class="is-flex is-align-items-center is-flex-wrap-wrap">
-        <nuxt-link v-if="isLoggedIn" to="new-article" class="mr-3">
+        <nuxt-link v-if="isLoggedIn" to="/new-article" class="mr-3">
           <b-icon icon="pencil-remove-outline" size="is-small" />
           <strong>New article</strong>
         </nuxt-link>
-        <nuxt-link v-if="isLoggedIn" to="settings" class="mr-3">
+        <nuxt-link v-if="isLoggedIn" to="/settings" class="mr-3">
           <b-icon icon="cog-outline" size="is-small" />
           <strong>Settings</strong>
         </nuxt-link>

@@ -24,7 +24,8 @@ export default {
   props: {
     isLoading: {
       type: Boolean,
-      default: false
+      default: false,
+      required: false
     },
     tags: {
       type: Array,
