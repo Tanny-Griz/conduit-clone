@@ -30,7 +30,7 @@ export default {
     tags: {
       type: Array,
       default: () => [],
-      required: false
+      required: true
     }
   }
 }

@@ -54,7 +54,7 @@ export default {
       title: '',
       description: '',
       body: '',
-      tagList: ''
+      tagList: null
     }
   },
   methods: {
@@ -63,7 +63,7 @@ export default {
         title: this.title,
         description: this.description,
         body: this.body,
-        tagList: this.tagList.split(', ')
+        tagList: this.tagList ? this.tagList.split(', ') : []
       }
       this.$emit('articleSubmit', form)
     }
