@@ -16,7 +16,7 @@ export default {
   },
 
   updateArticle (slug, articleInput) {
-    return axios.put(`/articles/${slug}`, articleInput)
+    return axios.put(`/articles/${slug}`, { article: articleInput })
       .then(response => response.data.article)
   }
 }
