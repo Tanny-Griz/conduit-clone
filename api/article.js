@@ -5,16 +5,13 @@ export default {
     return axios.get(`/articles/${slug}`)
       .then(response => response.data.article)
   },
-
   deleteArticle (slug) {
     return axios.delete(`/articles/${slug}`)
   },
-
   createArticle (articleInput) {
     return axios.post('/articles', { article: articleInput })
       .then(response => response.data.article)
   },
-
   updateArticle (slug, articleInput) {
     return axios.put(`/articles/${slug}`, { article: articleInput })
       .then(response => response.data.article)

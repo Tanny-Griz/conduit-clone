@@ -10,5 +10,9 @@ export default {
   },
   getCurrentUser () {
     return axios.get('/user')
+  },
+  updateCurrentUser (currentUserInput) {
+    return axios.put('/user', { user: currentUserInput })
+      .then(response => response.data.user)
   }
 }

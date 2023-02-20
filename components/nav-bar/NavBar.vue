@@ -25,7 +25,7 @@
         <nuxt-link v-if="currentUser" to="" class="is-flex mr-3">
           <div class="is-flex is-align-items-center">
             <img v-if="currentUser.image" class="mr-2" :src="currentUser.image" alt="image">
-            <strong>{{ currentUser.email }}12</strong>
+            <strong>{{ currentUser.username }}</strong>
           </div>
         </nuxt-link>
       </b-navbar-item>
