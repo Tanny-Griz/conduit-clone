@@ -77,7 +77,8 @@ export default {
       this.$store.dispatch('auth/updateCurrentUser', this.form)
     },
     logout () {
-      this.$store.dispatch('auth/logout').then(() => this.$router.push('/'))
+      this.$store.dispatch('auth/logout')
+      this.$router.push('/')
     }
   }
 }

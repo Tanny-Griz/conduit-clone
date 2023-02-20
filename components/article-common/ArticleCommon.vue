@@ -12,6 +12,8 @@
         :tag-list="article.tagList"
         :updated-at="article.updatedAt"
         :slug="article.slug"
+        :is-favorited="article.favorited"
+        :favorites-count="article.favoritesCount"
       />
     </div>
     <Pagination

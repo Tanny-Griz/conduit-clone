@@ -21,7 +21,12 @@
             </p>
           </div>
           <div class="favourite ml-auto">
-            <b-icon is-clicable icon="heart-outline" size="is-normal" />
+            <FavoritesButton
+              :is-favorited="isFavoritedOpt"
+              :article-slug="slug"
+              :favorites-count="favoritesCountOpt"
+              @addToFavorite="onAddToFavorite"
+            />
           </div>
         </div>
         <div class="content">
@@ -53,12 +58,16 @@
 
 <script>
 import dayjs from 'dayjs'
+import FavoritesButton from '../favorites-button/FavoritesButton.vue'
 import {
   isIsoDate
 } from '@/helpers'
 
 export default {
   name: 'ArticleCard',
+  components: {
+    FavoritesButton
+  },
   props: {
     isLoading: {
       type: Boolean,
@@ -91,6 +100,20 @@ export default {
       type: String,
       default: '',
       required: false
+    },
+    isFavorited: {
+      type: Boolean,
+      required: true
+    },
+    favoritesCount: {
+      type: Number,
+      required: true
+    }
+  },
+  data () {
+    return {
+      isFavoritedOpt: this.isFavorited,
+      favoritesCountOpt: this.favoritesCount
     }
   },
   computed: {
@@ -102,7 +125,19 @@ export default {
     }
   },
   methods: {
-    isIsoDate
+    isIsoDate,
+    onAddToFavorite (slug) {
+      this.$store.dispatch('favorites/addToFavorites', {
+        slug,
+        isFavotited: this.isFavoritedOpt
+      })
+      if (this.isFavoritedOpt) {
+        this.favoritesCountOpt = this.favoritesCountOpt - 1
+      } else {
+        this.favoritesCountOpt = this.favoritesCountOpt + 1
+      }
+      this.isFavoritedOpt = !this.isFavoritedOpt
+    }
   }
 }
 </script>
@@ -111,11 +146,6 @@ export default {
 @import '@/assets/styles/base/colors.scss';
 
 .card {
-  // .media-favourite {
-  //   position: absolute;
-  //   top: 20px;
-  //   right: 20px;
-  // }
   .media-content a {
     transition: all 0.3s;
     &:hover {

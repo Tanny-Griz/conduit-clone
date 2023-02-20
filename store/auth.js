@@ -134,7 +134,7 @@ export const actions = {
     })
   },
   logout (context) {
-    return new Promise((resolve) => {
+    return new Promise(() => {
       setItem('accessToken', '')
       context.commit('LOGOUT')
     })
