@@ -1,19 +1,17 @@
-import { mutationTypes as authMutationTypes } from './auth'
-
 export const state = () => ({
   isSubmitting: false,
   validationErrors: null
 })
 
 export const mutations = {
-  [authMutationTypes.updateCurrentUserStart] (state) {
+  UPDATE_CURRENT_USER_START (state) {
     state.isSubmitting = true
     state.validationErrors = null
   },
-  [authMutationTypes.updateCurrentUserSuccess] (state) {
+  UPDATE_CURRENT_USER_SUCCESS (state) {
     state.isSubmitting = false
   },
-  [authMutationTypes.updateCurrentUserFailure] (state, payload) {
+  UPDATE_CURRENT_USER_FAILURE (state, payload) {
     state.isSubmitting = false
     state.validationErrors = payload
   }

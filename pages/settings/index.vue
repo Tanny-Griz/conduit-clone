@@ -41,7 +41,6 @@
 
 <script>
 import ValidationErrors from '@/components/validation-errors/ValidationErrors.vue'
-import { actionTypes } from '@/store/auth'
 
 export default {
   name: 'Settings',
@@ -75,10 +74,10 @@ export default {
   },
   methods: {
     onSubmit () {
-      this.$store.dispatch('auth/' + actionTypes.updateCurrentUser, this.form)
+      this.$store.dispatch('auth/updateCurrentUser', this.form)
     },
     logout () {
-      this.$store.dispatch('auth/' + actionTypes.logout).then(() => this.$router.push('/'))
+      this.$store.dispatch('auth/logout').then(() => this.$router.push('/'))
     }
   }
 }

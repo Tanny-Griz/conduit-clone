@@ -34,8 +34,6 @@
 </template>
 
 <script>
-import { actionTypes } from '@/store/auth'
-
 export default {
   name: 'NavBar',
   computed: {
@@ -50,7 +48,7 @@ export default {
     }
   },
   mounted () {
-    this.$store.dispatch('auth/' + actionTypes.getCurrentUser)
+    this.$store.dispatch('auth/getCurrentUser')
   }
 }
 </script>
