@@ -1,14 +1,14 @@
-<template>
-  <h1>UserProfile name</h1>
+<!-- <template>
+  <UserProfileCard />
 </template>
 
 <script>
 export default {
-  name: 'UserProfile',
+  name: 'UserProfilePage',
   head () {
     return {
       titleTemplate: 'User Profile'
     }
   }
 }
-</script>
+</script> -->

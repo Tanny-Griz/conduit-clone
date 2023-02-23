@@ -22,7 +22,7 @@
         <nuxt-link v-if="!isLoggedIn" to="/log-in" class="mr-3">
           <strong>Log in</strong>
         </nuxt-link>
-        <nuxt-link v-if="currentUser" to="" class="is-flex mr-3">
+        <nuxt-link v-if="currentUser" :to="`/profiles/` + currentUser.username" class="is-flex mr-3">
           <div class="is-flex is-align-items-center">
             <img v-if="currentUser.image" class="mr-2" :src="currentUser.image" alt="image">
             <strong>{{ currentUser.username }}</strong>
@@ -38,13 +38,13 @@ export default {
   name: 'NavBar',
   computed: {
     currentUser () {
-      return this.$store.getters['auth/currentUser']
+      return this.$store.state.auth.currentUser
     },
     isLoggedIn () {
-      return this.$store.getters['auth/isLoggedIn']
+      return this.$store.state.auth.isLoggedIn
     },
     isAnonymous () {
-      return this.$store.getters['auth/isAnonymous']
+      return this.$store.state.auth.isAnonymous
     }
   },
   mounted () {

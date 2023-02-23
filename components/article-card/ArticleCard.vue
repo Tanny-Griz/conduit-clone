@@ -13,7 +13,7 @@
             </figure>
           </div>
           <div class="is-flex is-flex-direction-column">
-            <nuxt-link :to="`/user-profile/` + author.username.split(' ').join('-')" class="title is-inline-flex is-3">
+            <nuxt-link :to="`/profiles/` + author.username" class="title is-inline-flex is-3">
               {{ author.username }}
             </nuxt-link>
             <p class="subtitle has-text-grey-light is-7">

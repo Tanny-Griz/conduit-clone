@@ -28,7 +28,7 @@ export default {
       return this.$route.params.tag || ''
     },
     isLoggedIn () {
-      return this.$store.getters['auth/isLoggedIn']
+      return this.$store.state.auth.isLoggedIn
     }
   }
 }

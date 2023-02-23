@@ -23,9 +23,6 @@
           >
             <b-icon class="mr-1" is-clicable icon="pencil-outline" size="is-small" />Edit
           </nuxt-link>
-          <!-- <b-button type="is-light" class="m-1">
-            <b-icon class="mr-1" is-clicable icon="pencil-outline" size="is-small" />Edit
-          </b-button> -->
           <b-button type="is-primary" class="m-1" @click="onDeleteArticle(article.slug)">
             <b-icon class="mr-1" is-clicable icon="delete" size="is-small" />Delete
           </b-button>
@@ -89,7 +86,7 @@ export default {
       return null
     },
     currentUser () {
-      return this.$store.getters['auth/currentUser']
+      return this.$store.state.auth.currentUser
     },
     isAuthor () {
       if (!this.currentUser || !this.article) {

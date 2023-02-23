@@ -15,6 +15,9 @@
         :is-favorited="article.favorited"
         :favorites-count="article.favoritesCount"
       />
+      <p v-if="!articles">
+        No articles are here... yet.
+      </p>
     </div>
     <Pagination
       :total="articlesCount"

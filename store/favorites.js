@@ -8,7 +8,6 @@ export const mutations = {
 
 export const actions = {
   addToFavorites (context, { slug, isFavotited }) {
-    console.log('actions', isFavotited)
     return new Promise((resolve) => {
       context.commit('ADD_TO_FAVORITES_START')
       const promise = isFavotited
