@@ -13,7 +13,6 @@ axios.interceptors.request.use((config) => {
 axios.interceptors.response.use((response) => {
   return response
 }, (error) => {
-  console.log('error.response.status', error.response.status)
   if (error.response.status === 404) {
     window.location = '/no-access'
   } else if ((error?.toJSON()).message === 'Network Error') {

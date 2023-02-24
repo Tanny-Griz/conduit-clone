@@ -12,21 +12,20 @@
 </template>
 
 <script>
-// import { getItem, setItem } from '@/helpers'
 import userProfile from '@/api/userProfile'
 import ProfileCard from '@/components/profile-card/ProfileCard.vue'
 
 export default {
   name: 'ProfilePage',
   components: { ProfileCard },
-  async asyncData ({ params }) {
-    try {
-      const user = await userProfile.getUserProfile([params.user])
-      console.log('user', user)
-      return { user }
-    } catch (error) {
-      // TODO: Handle possible errors
+  data () {
+    return {
+      user: {},
+      isLoading: true
     }
+  },
+  async fetch () {
+    await this.getUser()
   },
   head () {
     return {
@@ -36,15 +35,23 @@ export default {
   computed: {
     userProfileSlug () {
       return this.$route.params.user
-    },
-    // apiUrlForFavorites () {
-    //   return `/articles?favorited=${this.userProfileSlug.username}`
-    // },
-    // apiUrl () {
-    //   return `/articles?author=${this.userProfileSlug.username}`
-    // },
-    isLoading () {
-      return this.$store.state.userProfile.isLoading
+    }
+  },
+  async mounted () {
+    await this.getUser()
+  },
+  methods: {
+    async getUser () {
+      try {
+        this.isLoading = true
+        const { user } = this.$route.params
+        const RES = await await userProfile.getUserProfile(user)
+        this.user = RES
+        this.isLoading = false
+      } catch (error) {
+        this.isLoading = false
+        // TODO: Handle errors
+      }
     }
   }
 }

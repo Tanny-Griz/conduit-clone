@@ -42,9 +42,6 @@ export default {
     currentPage () {
       return +this.$route.query.page || 1
     },
-    baseUrl () {
-      return this.$route.path
-    },
     offset () {
       return this.currentPage * this.limitOfArticles - this.limitOfArticles // p 1 * 10 - 10 = 0, p 2 * 10 - 10 = 10
     }

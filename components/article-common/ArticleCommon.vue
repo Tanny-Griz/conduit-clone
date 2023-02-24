@@ -1,21 +1,26 @@
 <template>
   <div>
     <div class="articles-wrapper">
-      <ArticleCard
-        v-for="(article, index) in articles"
-        :key="article.title + index"
-        class="mb-6"
-        :is-loading="isLoadingArticles"
-        :author="article.author"
-        :title="article.title"
-        :description="article.description"
-        :tag-list="article.tagList"
-        :updated-at="article.updatedAt"
-        :slug="article.slug"
-        :is-favorited="article.favorited"
-        :favorites-count="article.favoritesCount"
-      />
-      <p v-if="!articles">
+      <template v-if="isLoadingArticles">
+        <b-skeleton height="100" />
+      </template>
+      <template v-else>
+        <ArticleCard
+          v-for="(article, index) in articles"
+          :key="article.title + index"
+          class="mb-6"
+          :is-loading="isLoadingArticles"
+          :author="article.author"
+          :title="article.title"
+          :description="article.description"
+          :tag-list="article.tagList"
+          :updated-at="article.updatedAt"
+          :slug="article.slug"
+          :is-favorited="article.favorited"
+          :favorites-count="article.favoritesCount"
+        />
+      </template>
+      <p v-if="!articles.length">
         No articles are here... yet.
       </p>
     </div>
@@ -104,6 +109,11 @@ export default {
       try {
         if (this.tagName) {
           const apiUrlWithParams = `${this.apiUrl}?tag=${this.tagName}&${stringifiedParams}`
+          const realWorldArticles = await articles.getRealWorldArticles(apiUrlWithParams)
+          this.articles = realWorldArticles.data.articles
+          this.articlesCount = realWorldArticles.data.articlesCount
+        } else if (this.apiUrl.includes('=')) {
+          const apiUrlWithParams = `${this.apiUrl}&${stringifiedParams}`
           const realWorldArticles = await articles.getRealWorldArticles(apiUrlWithParams)
           this.articles = realWorldArticles.data.articles
           this.articlesCount = realWorldArticles.data.articlesCount
