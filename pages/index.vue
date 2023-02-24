@@ -7,20 +7,20 @@
       :is-loading="isLoadingTags"
       :tags="tags"
     />
-    <ArticleCommon :api-url="apiUrl" />
+    <ArticlesWrapper :api-url="apiUrl" />
   </section>
 </template>
 
 <script>
 import tags from '@/api/tags'
-import ArticleCommon from '@/components/article-common/ArticleCommon.vue'
+import ArticlesWrapper from '@/components/articles-wrapper/ArticlesWrapper.vue'
 import TagList from '@/components/tag-list/TagList.vue'
 
 export default {
   name: 'GlobalArticles',
   components: {
     TagList,
-    ArticleCommon
+    ArticlesWrapper
   },
   data () {
     return {
@@ -41,6 +41,9 @@ export default {
   computed: {
     currentPage () {
       return +this.$route.query.page || 1
+    },
+    baseUrl () {
+      return this.$route.path
     },
     offset () {
       return this.currentPage * this.limitOfArticles - this.limitOfArticles // p 1 * 10 - 10 = 0, p 2 * 10 - 10 = 10

@@ -10,20 +10,20 @@
     <h1 class="mb-3">
       Results of <strong>{{ tagName }}</strong> tag
     </h1>
-    <ArticleCommon :api-url="apiUrl" :tag-name="tagName" />
+    <ArticlesWrapper :api-url="apiUrl" :tag-name="tagName" />
   </section>
 </template>
 
 <script>
 import tags from '@/api/tags'
 import TagList from '@/components/tag-list/TagList.vue'
-import ArticleCommon from '@/components/article-common/ArticleCommon.vue'
+import ArticlesWrapper from '@/components/articles-wrapper/ArticlesWrapper.vue'
 
 export default {
   name: 'Tag',
   components: {
     TagList,
-    ArticleCommon
+    ArticlesWrapper
   },
   data () {
     return {

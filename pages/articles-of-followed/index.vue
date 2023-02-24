@@ -7,19 +7,19 @@
       :is-loading="isLoadingTags"
       :tags="tags"
     />
-    <ArticleCommon :api-url="apiUrl" />
+    <ArticlesWrapper :api-url="apiUrl" />
   </section>
 </template>
 
 <script>
 import tags from '@/api/tags'
 import TagList from '@/components/tag-list/TagList.vue'
-import ArticleCommon from '@/components/article-common/ArticleCommon.vue'
+import ArticlesWrapper from '@/components/articles-wrapper/ArticlesWrapper.vue'
 
 export default {
   name: 'YourArticlesPage',
   components: {
-    ArticleCommon,
+    ArticlesWrapper,
     TagList
   },
   data () {

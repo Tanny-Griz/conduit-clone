@@ -46,7 +46,7 @@ import Pagination from '@/components/pagination/Pagination.vue'
 import { limit } from '@/helpers'
 
 export default {
-  name: 'ArticleCommon',
+  name: 'ArticlesWrapper',
   components: {
     ArticleCard,
     Pagination

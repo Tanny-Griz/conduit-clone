@@ -6,6 +6,7 @@
     <template v-else>
       <ProfileCard
         :user-profile="user"
+        :current-user-name="currentUserName"
       />
     </template>
   </div>
@@ -33,6 +34,9 @@ export default {
     }
   },
   computed: {
+    currentUserName () {
+      return this.$store.getters['auth/currentUser']?.username
+    },
     userProfileSlug () {
       return this.$route.params.user
     }
