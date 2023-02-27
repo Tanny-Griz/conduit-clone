@@ -9,9 +9,12 @@
         <p v-if="userProfile.bio" class="mb-3">
           <i>"{{ userProfile.bio }}"</i>
         </p>
-        <b-button v-if="!isCurrentUserProfile" class="is-small is-outlined is-align-items-start" @click="followUser">
-          <b-icon icon="plus" size="is-small" />
-          <span>{{ userProfile.following ? 'Unfollow' : 'Follow' }} {{ userProfile.username }}</span>
+        <b-button
+          v-if="!isCurrentUserProfile"
+          class="is-small is-outlined is-align-items-start"
+          @click="followUser"
+        >
+          <span>{{ isFollowingOpt ? '- Unfollow' : '+ Follow' }} {{ userProfile.username }}</span>
         </b-button>
         <nuxt-link v-if="isCurrentUserProfile" to="/settings" class="mr-3">
           <b-icon icon="cog-outline" size="is-small" />
@@ -20,7 +23,7 @@
       </div>
     </div>
     <div class="container">
-      <b-tabs class="test">
+      <b-tabs v-model="activeTab" class="test">
         <b-tab-item label="My Posts">
           <ArticlesWrapper :api-url="apiUrl" />
         </b-tab-item>
@@ -52,6 +55,12 @@ export default {
       default: ''
     }
   },
+  data () {
+    return {
+      isFollowingOpt: this.userProfile.following,
+      activeTab: 0
+    }
+  },
   computed: {
     apiUrl () {
       return `/articles?author=${this.userProfile.username}`
@@ -65,7 +74,11 @@ export default {
   },
   methods: {
     followUser () {
-      console.log('fff')
+      this.$store.dispatch('userProfile/followUser', {
+        slug: this.userProfile.username,
+        isFollowing: this.isFollowingOpt
+      })
+      this.isFollowingOpt = !this.isFollowingOpt
     }
   }
 }

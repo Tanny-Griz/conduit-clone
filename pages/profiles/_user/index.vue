@@ -21,8 +21,7 @@ export default {
   components: { ProfileCard },
   data () {
     return {
-      user: {},
-      isLoading: true
+      isLoading: false
     }
   },
   async fetch () {
@@ -39,18 +38,18 @@ export default {
     },
     userProfileSlug () {
       return this.$route.params.user
+    },
+    user () {
+      return this.$store.state.userProfile.user
     }
-  },
-  async mounted () {
-    await this.getUser()
   },
   methods: {
     async getUser () {
       try {
         this.isLoading = true
         const { user } = this.$route.params
-        const RES = await await userProfile.getUserProfile(user)
-        this.user = RES
+        const RES = await userProfile.getUser(user)
+        this.$store.dispatch('userProfile/setUserProfile', RES)
         this.isLoading = false
       } catch (error) {
         this.isLoading = false

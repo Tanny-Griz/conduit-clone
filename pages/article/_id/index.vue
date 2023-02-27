@@ -38,7 +38,7 @@
       </div>
     </div>
     <div v-if="article" class="section">
-      <p>{{ article.description }}</p>
+      <p>{{ article.body }}</p>
       <TagList
         v-if="article.tagList.length"
         :tags="article.tagList"

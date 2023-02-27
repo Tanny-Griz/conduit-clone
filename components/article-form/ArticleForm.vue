@@ -9,7 +9,7 @@
         <b-input v-model="description" placeholder="What's this article about?" />
       </b-field>
       <b-field label="Body">
-        <b-input v-model="body" maxlength="200" type="textarea" placeholder="Write your article" />
+        <b-input v-model="body" maxlength="1000" type="textarea" placeholder="Write your article" />
       </b-field>
       <b-field>
         <b-input v-model="tagList" placeholder="Enter tags separated by space" />

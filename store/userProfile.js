@@ -1,45 +1,38 @@
 import getUserProfile from '@/api/userProfile'
 
 export const state = () => ({
-  data: null,
-  isLoading: false,
-  error: null
+  user: null
 })
 
 export const getters = {
-  data: (state) => {
-    return state.data
-  },
-  isLoading: (state) => {
-    return Boolean(state.isLoading)
+  user: (state) => {
+    return state.user
   }
 }
 
 export const mutations = {
-  GET_USER_PROFILE_START (state) {
-    state.isLoading = true
-    state.data = null
+  SET_USER_PROFILE (state, user) {
+    state.user = user
   },
-  GET_USER_PROFILE_SUCCESS (state, payload) {
-    state.data = payload
-    state.isLoading = false
-  },
-  GET_USER_PROFILE_FAILURE (state, payload) {
-    state.isLoading = false
-    state.error = payload
+
+  FOLLOW_USER (state, user) {
+    state.user = user
   }
 }
 
 export const actions = {
-  getUserProfile (context, { slug }) {
-    return new Promise((resolve) => {
-      context.commit('GET_USER_PROFILE_START')
-      getUserProfile.getUserProfile(slug).then((userProfile) => {
-        context.commit('GET_USER_PROFILE_SUCCESS', userProfile)
-        resolve(userProfile)
-      }).catch((result) => {
-        context.commit('GET_USER_PROFILE_FAILURE', result.response.data.errors)
-      })
+  setUserProfile ({ commit }, user) {
+    commit('SET_USER_PROFILE', user)
+  },
+  followUser ({ commit }, { slug, isFollowing }) {
+    const promise = isFollowing
+      ? getUserProfile.unFollow(slug)
+      : getUserProfile.follow(slug)
+
+    promise.then((userProfile) => {
+      commit('FOLLOW_USER', userProfile)
+    }).catch((result) => {
+      console.log(result.response.data.errors)
     })
   }
 }
