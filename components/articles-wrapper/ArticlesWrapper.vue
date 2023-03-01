@@ -94,6 +94,9 @@ export default {
       this.getRealWorldArticles()
     }
   },
+  mounted () {
+    this.getRealWorldArticles()
+  },
   methods: {
     onCurrentPageChange (current) {
       this.$router.push({

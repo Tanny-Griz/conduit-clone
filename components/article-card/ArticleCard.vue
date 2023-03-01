@@ -14,7 +14,7 @@
           </div>
           <div class="is-flex is-flex-direction-column">
             <nuxt-link :to="`/profiles/` + author.username" class="title is-inline-flex is-3">
-              {{ author.username }}
+              {{ author.username }} {{ isFavoritedOpt }}
             </nuxt-link>
             <p class="subtitle has-text-grey-light is-7">
               <time>{{ dateTime }}</time>
