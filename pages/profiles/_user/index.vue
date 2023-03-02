@@ -21,7 +21,8 @@ export default {
   components: { ProfileCard },
   data () {
     return {
-      isLoading: false
+      isLoading: false,
+      user: {}
     }
   },
   async fetch () {
@@ -38,10 +39,10 @@ export default {
     },
     userProfileSlug () {
       return this.$route.params.user
-    },
-    user () {
-      return this.$store.state.userProfile.user
     }
+  },
+  mounted () {
+    this.getUser() // without this we have an error 500 from server
   },
   methods: {
     async getUser () {
@@ -50,9 +51,11 @@ export default {
         const { user } = this.$route.params
         const RES = await userProfile.getUser(user)
         this.$store.dispatch('userProfile/setUserProfile', RES)
+        this.user = RES
         this.isLoading = false
       } catch (error) {
         this.isLoading = false
+        console.log('getUser error', error)
         // TODO: Handle errors
       }
     }
