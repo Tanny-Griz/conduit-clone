@@ -75,9 +75,6 @@ export default {
       order: ''
     }
   },
-  async fetch () {
-    await this.getRealWorldArticles()
-  },
   computed: {
     currentPage () {
       return +this.$route.query.page || 1
@@ -109,6 +106,7 @@ export default {
         limit,
         offset: this.offset
       })
+      console.log(this.apiUrl)
       try {
         if (this.tagName) {
           const apiUrlWithParams = `${this.apiUrl}?tag=${this.tagName}&${stringifiedParams}`
