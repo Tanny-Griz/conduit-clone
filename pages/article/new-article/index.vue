@@ -31,7 +31,7 @@ export default {
   },
   head () {
     return {
-      titleTemplate: 'New Article'
+      titleTemplate: 'New Article Page'
     }
   },
   computed: {

@@ -37,7 +37,7 @@ export default {
   },
   head () {
     return {
-      titleTemplate: 'Tag'
+      titleTemplate: 'Tag Page'
     }
   },
   computed: {

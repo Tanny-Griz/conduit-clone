@@ -35,7 +35,7 @@ export default {
   },
   head () {
     return {
-      titleTemplate: 'Global Articles'
+      titleTemplate: 'Global Articles Page'
     }
   },
   computed: {

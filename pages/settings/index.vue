@@ -49,7 +49,7 @@ export default {
   },
   head () {
     return {
-      titleTemplate: 'Settings'
+      titleTemplate: 'Settings Page'
     }
   },
   computed: {
