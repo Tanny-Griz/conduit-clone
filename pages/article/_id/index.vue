@@ -44,7 +44,7 @@
               class="m-1"
               @click="onFavoriteArticle"
             >
-              <b-icon class="mr-1" is-clicable icon="heart-outline" size="is-small" />Favorite Article
+              <b-icon class="mr-1" is-clicable :icon="isFavoritedOpt ? 'heart' : 'heart-outline'" size="is-small" />Favorite
             </b-button>
           </div>
         </div>
@@ -132,7 +132,8 @@ export default {
       comments: [],
       commentBody: '',
       errorMsg: '',
-      isFollowingOpt: false
+      isFollowingOpt: false,
+      isFavoritedOpt: false
     }
   },
   async fetch () {
@@ -175,6 +176,7 @@ export default {
         const RES = await article.getArticle(this.$route.params.id)
         this.article = RES
         this.isFollowingOpt = this.article.author.following
+        this.isFavoritedOpt = this.article.favorited
         this.isLoadingArticle = false
       } catch (error) {
         this.isLoadingArticle = false
@@ -192,7 +194,6 @@ export default {
       try {
         const RES = await comments.getComments(this.slug)
         this.comments = RES
-        console.log('RES', RES)
       } catch (error) {
         console.log('getComments', error)
       }
@@ -229,7 +230,11 @@ export default {
       this.isFollowingOpt = !this.isFollowingOpt
     },
     onFavoriteArticle () {
-      console.log('onFavoriteArticle')
+      this.$store.dispatch('favorites/addToFavorites', {
+        slug: this.article.slug,
+        isFavotited: this.isFavoritedOpt
+      })
+      this.isFavoritedOpt = !this.isFavoritedOpt
     }
   }
 }
