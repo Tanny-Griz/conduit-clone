@@ -30,7 +30,7 @@ export default {
   },
   head () {
     return {
-      titleTemplate: 'Profile'
+      titleTemplate: 'Profile Page'
     }
   },
   computed: {

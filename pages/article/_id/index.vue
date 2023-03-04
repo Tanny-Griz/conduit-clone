@@ -44,6 +44,51 @@
         :tags="article.tagList"
       />
       <hr>
+      <div class="mb-5">
+        <article class="media">
+          <figure class="media-left">
+            <p class="image is-64x64">
+              <img src="https://bulma.io/images/placeholders/128x128.png">
+            </p>
+          </figure>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+                <br>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+              </p>
+            </div>
+          </div>
+          <!-- <div class="media-right">
+            <button class="delete" />
+          </div> -->
+        </article>
+      </div>
+      <hr>
+      <div>
+        <article class="media">
+          <figure class="media-left">
+            <p class="image is-64x64">
+              <img :src="currentUser.image">
+            </p>
+          </figure>
+          <div class="media-content">
+            <div class="field">
+              <p class="control">
+                <textarea class="textarea" placeholder="Add a comment..." />
+              </p>
+            </div>
+            <nav class="level">
+              <div class="level-left">
+                <div class="level-item">
+                  <a class="button is-info">Submit</a>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </article>
+      </div>
     </div>
   </div>
 </template>
