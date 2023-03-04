@@ -32,10 +32,18 @@
             </b-button>
           </div>
           <div v-else class="is-flex is-flex-wrap-wrap">
-            <b-button type="is-light" class="m-1">
-              <b-icon class="mr-1" is-clicable icon="plus" size="is-small" />Follow {{ article.author.username }}
+            <b-button
+              type="is-light"
+              class="m-1"
+              @click="onFollowUser"
+            >
+              <span>{{ isFollowingOpt ? '- Unfollow' : '+ Follow' }} {{ article.author.username }}</span>
             </b-button>
-            <b-button type="is-primary" class="m-1">
+            <b-button
+              type="is-primary"
+              class="m-1"
+              @click="onFavoriteArticle"
+            >
               <b-icon class="mr-1" is-clicable icon="heart-outline" size="is-small" />Favorite Article
             </b-button>
           </div>
@@ -123,7 +131,8 @@ export default {
       article: {},
       comments: [],
       commentBody: '',
-      errorMsg: ''
+      errorMsg: '',
+      isFollowingOpt: false
     }
   },
   async fetch () {
@@ -165,6 +174,7 @@ export default {
         this.isLoadingArticle = true
         const RES = await article.getArticle(this.$route.params.id)
         this.article = RES
+        this.isFollowingOpt = this.article.author.following
         this.isLoadingArticle = false
       } catch (error) {
         this.isLoadingArticle = false
@@ -210,6 +220,16 @@ export default {
       } catch (error) {
         console.log('onDeleteComment', error)
       }
+    },
+    onFollowUser () {
+      this.$store.dispatch('userProfile/followUser', {
+        slug: this.article.author.username,
+        isFollowing: this.isFollowingOpt
+      })
+      this.isFollowingOpt = !this.isFollowingOpt
+    },
+    onFavoriteArticle () {
+      console.log('onFavoriteArticle')
     }
   }
 }

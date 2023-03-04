@@ -12,7 +12,7 @@
         <b-button
           v-if="!isCurrentUserProfile"
           class="is-small is-outlined is-align-items-start"
-          @click="followUser"
+          @click="onFollowUser"
         >
           <span>{{ isFollowingOpt ? '- Unfollow' : '+ Follow' }} {{ userProfile.username }}</span>
         </b-button>
@@ -73,7 +73,7 @@ export default {
     }
   },
   methods: {
-    followUser () {
+    onFollowUser () {
       this.$store.dispatch('userProfile/followUser', {
         slug: this.userProfile.username,
         isFollowing: this.isFollowingOpt
