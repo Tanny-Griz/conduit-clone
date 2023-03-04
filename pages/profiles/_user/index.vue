@@ -42,7 +42,7 @@ export default {
     }
   },
   mounted () {
-    this.getUser() // without this we have an error 500 from server
+    this.getUser()
   },
   methods: {
     async getUser () {

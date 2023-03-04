@@ -106,7 +106,6 @@ export default {
         limit,
         offset: this.offset
       })
-      console.log(this.apiUrl)
       try {
         if (this.tagName) {
           const apiUrlWithParams = `${this.apiUrl}?tag=${this.tagName}&${stringifiedParams}`
