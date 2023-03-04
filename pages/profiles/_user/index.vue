@@ -55,8 +55,7 @@ export default {
         this.isLoading = false
       } catch (error) {
         this.isLoading = false
-        console.log('getUser error', error)
-        // TODO: Handle errors
+        console.log('getUser', error)
       }
     }
   }
