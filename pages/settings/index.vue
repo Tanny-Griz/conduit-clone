@@ -2,7 +2,7 @@
   <section v-if="currentUser" class="settings-page columns is-centered section">
     <div class="column is-7">
       <h2 class="is-size-3 mb-3">
-        Settings
+        {{ $t('settingsPage.settings') }}
       </h2>
       <ValidationErrors v-if="validationErrors" class="mb-2" :validation-errors="validationErrors" />
       <form @submit.prevent="onSubmit">
@@ -27,13 +27,13 @@
             :disable="isSubmitting"
             type="is-success"
           >
-            Update settings
+            {{ $t('settingsPage.updateSettings') }}
           </b-button>
         </b-field>
       </form>
       <hr>
       <b-button class="is-danger is-outlined" @click="logout">
-        Or click here to logout
+        {{ $t('settingsPage.clickToLogout') }}
       </b-button>
     </div>
   </section>
@@ -43,7 +43,7 @@
 import ValidationErrors from '@/components/validation-errors/ValidationErrors.vue'
 
 export default {
-  name: 'Settings',
+  name: 'SettingsPage',
   components: {
     ValidationErrors
   },

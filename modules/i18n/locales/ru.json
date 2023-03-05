@@ -62,7 +62,29 @@
     "submit": "Отправить",
     "addAComment": "Добавить комментарий..."
   },
-  "editArticle": {
-    "edit": "Edit"
+  "editArticlePage": {
+    "edit": "Редактировать"
+  },
+  "articlesOfFollowedPage": {
+    "popularTags": "Популярные теги"
+  },
+  "noAccessPage": {
+    "noAccessPage": "Страница без доступа"
+  },
+  "settingsPage": {
+    "settings": "Настройки",
+    "updateSettings": "Обновить настройки",
+    "clickToLogout": "Или нажмите здесь, чтобы выйти"
+  },
+  "tagPage": {
+    "popularTags": "Популярные теги",
+    "resultsOf": "Результаты",
+    "tag": "тег"
+  },
+  "unexpectedErrorPage": {
+    "unexpectedErrorPage": "Страница неожиданной ошибки"
+  },
+  "globalArticlesPage": {
+    "popularTags": "Популярные теги"
   }
 }

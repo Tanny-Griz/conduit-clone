@@ -1,7 +1,7 @@
 <template>
   <div class="unexpected-error-page section">
     <h1 class="has-text-weight-bold">
-      Unexpected Error Page
+      {{ $t('unexpectedErrorPage.unexpectedErrorPage') }}
     </h1>
     <p>500</p>
   </div>
@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'UnexpectedError',
+  name: 'UnexpectedErrorPage',
   head () {
     return {
       titleTemplate: 'Unexpected Error Page'

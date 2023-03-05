@@ -1,7 +1,7 @@
 <template>
   <section class="global-articles-page section">
     <h2 class="has-text-info has-text-weight-bold mb-3 pt-2 px-2">
-      Popular Tags
+      {{ $t('globalArticlesPage.popularTags') }}
     </h2>
     <TagList
       :is-loading="isLoadingTags"
@@ -17,7 +17,7 @@ import ArticlesWrapper from '@/components/articles-wrapper/ArticlesWrapper.vue'
 import TagList from '@/components/tag-list/TagList.vue'
 
 export default {
-  name: 'GlobalArticles',
+  name: 'GlobalArticlesPage',
   components: {
     TagList,
     ArticlesWrapper

@@ -1,6 +1,6 @@
 <template>
   <div class="edit-article-page section">
-    <h1>{{ $t('editArticle.edit') }}</h1>
+    <h1>{{ $t('editArticlePage.edit') }}</h1>
     <ArticleForm
       v-if="initialValues"
       :initial-values="initialValues"
@@ -16,7 +16,7 @@ import ArticleForm from '@/components/article-form/ArticleForm.vue'
 import article from '@/api/article'
 
 export default {
-  name: 'EditArticle',
+  name: 'EditArticlePage',
   components: {
     ArticleForm
   },

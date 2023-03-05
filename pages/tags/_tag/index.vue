@@ -1,14 +1,14 @@
 <template>
   <section class="tag-page section">
     <h2 class="has-text-info has-text-weight-bold mb-3 pt-2 px-2">
-      Popular Tags
+      {{ $t('tagPage.popularTags') }}
     </h2>
     <TagList
       :is-loading="isLoadingTags"
       :tags="tags"
     />
     <h1 class="mb-3">
-      Results of <strong>{{ tagName }}</strong> tag
+      {{ $t('tagPage.resultsOf') }} <strong>{{ tagName }}</strong> {{ $t('tagPage.tag') }}
     </h1>
     <ArticlesWrapper :api-url="apiUrl" :tag-name="tagName" />
   </section>
@@ -20,7 +20,7 @@ import TagList from '@/components/tag-list/TagList.vue'
 import ArticlesWrapper from '@/components/articles-wrapper/ArticlesWrapper.vue'
 
 export default {
-  name: 'Tag',
+  name: 'TagPage',
   components: {
     TagList,
     ArticlesWrapper

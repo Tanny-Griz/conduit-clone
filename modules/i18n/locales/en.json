@@ -61,5 +61,30 @@
     "favorite": "Favorite",
     "submit": "Submit",
     "addAComment": "Add a commment..."
+  },
+  "editArticlePage": {
+    "edit": "Edit"
+  },
+  "articlesOfFollowed": {
+    "popularTags": "Popular Tags"
+  },
+  "noAccessPage": {
+    "noAccessPage": "No Access Page"
+  },
+  "settings": {
+    "settings": "Settings",
+    "updateSettings": "Update settings",
+    "clickToLogout": "Or click here to logout"
+  },
+  "tagPage": {
+    "popularTags": "Popular Tags",
+    "resultsOf": "Results of",
+    "tag": "tag"
+  },
+  "unexpectedErrorPage": {
+    "unexpectedErrorPage": "Unexpected Error Page"
+  },
+  "globalArticlesPage": {
+    "popularTags": "Popular Tags"
   }
 }

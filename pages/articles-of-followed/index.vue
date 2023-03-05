@@ -1,7 +1,7 @@
 <template>
   <section class="articles-of-followed-page section">
     <h2 class="has-text-info has-text-weight-bold mb-3 pt-2 px-2">
-      Popular Tags
+      {{ $t('articlesOfFollowedPage.popularTags') }}
     </h2>
     <TagList
       :is-loading="isLoadingTags"
@@ -17,7 +17,7 @@ import TagList from '@/components/tag-list/TagList.vue'
 import ArticlesWrapper from '@/components/articles-wrapper/ArticlesWrapper.vue'
 
 export default {
-  name: 'YourArticlesPage',
+  name: 'ArticlesOfFollowedPage',
   components: {
     ArticlesWrapper,
     TagList

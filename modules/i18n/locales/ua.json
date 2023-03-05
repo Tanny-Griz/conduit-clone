@@ -59,5 +59,30 @@
     "favorite": "Улюблене",
     "submit": "Надіслати",
     "addAComment": "Додати коментар..."
+  },
+  "editArticlePage": {
+    "edit": "Редагувати"
+  },
+  "articlesOfFollowedPage": {
+    "popularTags": "Популярные теги"
+  },
+  "noAccessPage": {
+    "noAccessPage": "Немає доступу до сторінки"
+  },
+  "settingsPage": {
+    "settings": "Налаштування",
+    "updateSettings": "Оновити налаштування",
+    "clickToLogout": "Або натисніть тут, щоб вийти"
+  },
+  "tagPage": {
+    "popularTags": "Популярні теги",
+    "resultsOf": "Результати",
+    "tag": "тег,"
+  },
+  "unexpectedErrorPage": {
+    "unexpectedErrorPage": "Сторінка неочікуваної помилки"
+  },
+  "globalArticlesPage": {
+    "popularTags": "Популярные теги"
   }
 }

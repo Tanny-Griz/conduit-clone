@@ -14,7 +14,7 @@ import ArticleForm from '@/components/article-form/ArticleForm.vue'
 import article from '@/api/article'
 
 export default {
-  name: 'NewArticle',
+  name: 'NewArticlePage',
   components: {
     ArticleForm
   },

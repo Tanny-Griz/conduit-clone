@@ -1,7 +1,7 @@
 <template>
   <div class="no-access-page section">
     <h1 class="has-text-weight-bold">
-      No Access Page
+      {{ $t('noAccessPage.noAccessPage') }}
     </h1>
   </div>
 </template>
