@@ -1,24 +1,24 @@
 <template>
   <section class="sign-up-page section">
     <h2 class="title is-2 has-text-centered">
-      Sign up
+      {{ $t('signUp.signUp') }}
     </h2>
     <h6 class="title is-6 has-text-centered">
       <nuxt-link to="/sign-in">
-        Have an account?
+        {{ $t('signUp.haveAnAccount') }}
       </nuxt-link>
     </h6>
     <div class="columns is-centered">
       <div class="column is-7">
         <ValidationErrors v-if="validationErrors" :validation-errors="validationErrors" />
         <div class="field">
-          <label class="label">Username</label>
+          <label class="label">{{ $t('signUp.username') }}</label>
           <div class="control has-icons-right">
             <input
               v-model="username"
               class="input"
               type="text"
-              placeholder="Input name"
+              :placeholder="$t('signUp.inputName')"
               value=""
             >
             <span class="icon is-small is-right">
@@ -28,13 +28,13 @@
         </div>
 
         <div class="field">
-          <label class="label">Email</label>
+          <label class="label">{{ $t('signUp.email') }}</label>
           <div class="control has-icons-right">
             <input
               v-model="email"
               class="input"
               type="email"
-              placeholder="Input Email"
+              :placeholder="$t('signUp.inputEmail')"
             >
             <span class="icon is-small is-right">
               <i class="fas fa-exclamation-triangle" />
@@ -43,7 +43,7 @@
         </div>
 
         <div class="field">
-          <label class="label">Password</label>
+          <label class="label">{{ $t('signUp.password') }}</label>
           <div class="control has-icons-right">
             <input
               v-model="password"
@@ -60,12 +60,12 @@
         <div class="field is-grouped">
           <div class="control">
             <button :disabled="isSubmitting" class="button is-link" @click="onSubmit">
-              Submit
+              {{ $t('signUp.submit') }}
             </button>
           </div>
           <div class="control">
             <button class="button is-link is-light">
-              Cancel
+              {{ $t('signUp.cansel') }}
             </button>
           </div>
         </div>
