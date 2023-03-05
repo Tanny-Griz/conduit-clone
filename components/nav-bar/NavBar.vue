@@ -4,6 +4,17 @@
       <b-navbar-item tag="router-link" class="has-text-dark has-text-weight-bold" :to="{ path: '/' }">
         Conduit clone
       </b-navbar-item>
+      <div class="lang-dropdown">
+      <select v-model="$i18n.locale">
+        <option
+          v-for="lang in $i18n.locales"
+          :key="lang.code"
+          :value="lang.code"
+        >
+          {{ lang.name }}
+        </option>
+      </select>
+    </div>
     </template>
 
     <template #end>

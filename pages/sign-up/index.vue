@@ -18,7 +18,7 @@
               v-model="username"
               class="input"
               type="text"
-              placeholder="Text input"
+              placeholder="Input name"
               value=""
             >
             <span class="icon is-small is-right">
@@ -34,7 +34,7 @@
               v-model="email"
               class="input"
               type="email"
-              placeholder="Email input"
+              placeholder="Input Email"
             >
             <span class="icon is-small is-right">
               <i class="fas fa-exclamation-triangle" />

@@ -1,0 +1,30 @@
+{
+  "header": {
+    "signUp": "Sign up",
+    "logIn": "Log in",
+    "newArticle": "New article",
+    "settings": "Settings"
+  },
+  "signUp": {
+    "signUp": "Sign up",
+    "haveAnAccount": "Have an account?",
+    "username": "Username",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Submit",
+    "cansel": "Cancel",
+    "inputName": "Input name",
+    "inputEmail": "Input Email"
+  },
+  "logIn": {
+    "logIn": "Log in",
+    "needAnAccount": "Need an account?",
+    "username": "Username",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Submit",
+    "cansel": "Cancel",
+    "inputName": "Input name",
+    "inputEmail": "Input Email"
+  }
+}

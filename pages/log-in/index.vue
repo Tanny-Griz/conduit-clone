@@ -1,24 +1,24 @@
 <template>
   <section class="log-in-page section">
     <h2 class="title is-2 has-text-centered">
-      Log in
+      {{ $t('logIn.logIn') }}
     </h2>
     <h6 class="title is-6 has-text-centered">
       <nuxt-link to="/sign-up">
-        Need an account?
+        {{ $t('logIn.needAnAccount') }}
       </nuxt-link>
     </h6>
     <div class="columns is-centered">
       <div class="column is-7">
         <ValidationErrors v-if="validationErrors" :validation-errors="validationErrors" />
         <div class="field">
-          <label class="label">Email</label>
+          <label class="label">{{ $t('logIn.email') }}</label>
           <div class="control has-icons-right">
             <input
               v-model="email"
               class="input"
               type="email"
-              placeholder="Email input"
+              :placeholder="$t('logIn.inputEmail')"
             >
             <span class="icon is-small is-right">
               <i class="fas fa-exclamation-triangle" />
@@ -27,13 +27,12 @@
         </div>
 
         <div class="field">
-          <label class="label">Password</label>
+          <label class="label">{{ $t('logIn.password') }}</label>
           <div class="control has-icons-right">
             <input
               v-model="password"
               class="input"
               type="password"
-              placeholder=""
             >
             <span class="icon is-small is-right">
               <i class="fas fa-exclamation-triangle" />
@@ -44,7 +43,7 @@
         <div class="field is-grouped">
           <div class="control">
             <button :disabled="isSubmitting" class="button is-link" @click="onSubmit">
-              Log in
+              {{ $t('logIn.submit') }}
             </button>
           </div>
         </div>

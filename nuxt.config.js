@@ -1,3 +1,5 @@
+import { I18N } from './modules'
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -35,7 +37,8 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     'nuxt-buefy', // https://go.nuxtjs.dev/buefy
-    '@nuxtjs/axios' // https://go.nuxtjs.dev/axios
+    '@nuxtjs/axios', // https://go.nuxtjs.dev/axiosб
+    ['@nuxtjs/i18n', I18N]
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
