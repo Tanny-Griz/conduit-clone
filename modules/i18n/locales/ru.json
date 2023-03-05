@@ -3,7 +3,11 @@
     "signUp": "Зарегистрироваться",
     "logIn": "Авторизоваться",
     "newArticle": "Новая статья",
-    "settings": "Settings"
+    "settings": "Настройки"
+  },
+  "toggleBar": {
+    "globalArticles": "Глобальные статьи",
+    "articlesOfFollowed": "Статьи, на которые подписаны"
   },
   "signUp": {
     "signUp": "Зарегистрироваться",
@@ -26,5 +30,18 @@
     "cansel": "Отмена",
     "inputName": "Введите имя",
     "inputEmail": "Введите адрес электронной почты"
+  },
+  "articleCard": {
+    "readMore": "Читать далее..."
+  },
+  "articleForm": {
+    "title": "Заголовок",
+    "titleOfArticle": "Название статьи",
+    "description": "Описание",
+    "about": "О чем эта статья?",
+    "body": "Тело",
+    "yourArticle": "Напишите свою статьюю",
+    "tags": "Введите теги через пробел",
+    "publish": "Опубликовать статью"
   }
 }

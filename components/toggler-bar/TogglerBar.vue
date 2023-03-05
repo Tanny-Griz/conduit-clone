@@ -3,12 +3,12 @@
     <ul class="menu-list is-flex">
       <li>
         <NuxtLink :to="'/'" exact-active-class="has-background-dark has-text-white-bis">
-          Global Articles
+          {{ $t('toggleBar.globalArticles') }}
         </NuxtLink>
       </li>
       <li>
         <NuxtLink v-if="isLoggedIn" :to="'/articles-of-followed'" exact-active-class="has-background-dark has-text-white-bis">
-          Articles of Followed
+          {{ $t('toggleBar.articlesOfFollowed') }}
         </NuxtLink>
       </li>
       <li>

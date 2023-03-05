@@ -1,9 +1,13 @@
 {
-  "header": {
+  "navBar": {
     "signUp": "Реєстрація",
     "logIn": "Авторизуватися",
     "newArticle": "Нова стаття",
     "settings": "Настройки"
+  },
+  "toggleBar": {
+    "globalArticles": "Глобальні статті",
+    "articlesOfFollowed": "Статті, на які ви підписалися"
   },
   "signUp": {
     "signUp": "Зареєструватися",
@@ -24,5 +28,18 @@
     "submit": "Надіслати",
     "cansel": "Скасувати",
     "inputEmail": "Введіть електронну пошту"
+  },
+  "articleCard": {
+    "readMore": "Читати далі..."
+  },
+  "articleForm": {
+    "title": "Назва",
+    "titleOfArticle": "Назва статті",
+    "description": "Опис",
+    "about": "Про що ця стаття?",
+    "body": "Тіло",
+    "yourArticle": "Напишіть свою статтю",
+    "tags": "Введіть теги, розділені пробілом",
+    "publish": "Опублікувати статтю"
   }
 }

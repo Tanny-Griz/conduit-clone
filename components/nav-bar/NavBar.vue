@@ -21,17 +21,17 @@
       <b-navbar-item tag="div" class="is-flex is-align-items-center is-flex-wrap-wrap">
         <nuxt-link v-if="isLoggedIn" to="/article/new-article" class="mr-3">
           <b-icon icon="pencil-remove-outline" size="is-small" />
-          <strong>New article</strong>
+          <strong>{{ $t('navBar.newArticle') }}</strong>
         </nuxt-link>
         <nuxt-link v-if="isLoggedIn" to="/settings" class="mr-3">
           <b-icon icon="cog-outline" size="is-small" />
-          <strong>Settings</strong>
+          <strong>{{ $t('navBar.settings') }}</strong>
         </nuxt-link>
         <nuxt-link v-if="!isLoggedIn" to="/sign-up" class="mr-3">
-          <strong>Sign up</strong>
+          <strong>{{ $t('navBar.signUp') }}</strong>
         </nuxt-link>
         <nuxt-link v-if="!isLoggedIn" to="/log-in" class="mr-3">
-          <strong>Log in</strong>
+          <strong>{{ $t('navBar.logIn') }}</strong>
         </nuxt-link>
         <nuxt-link v-if="currentUser" :to="`/profiles/` + currentUser.username" class="is-flex mr-3">
           <div class="is-flex is-align-items-center">

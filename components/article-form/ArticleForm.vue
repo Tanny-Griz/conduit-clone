@@ -2,17 +2,17 @@
   <div>
     <ValidationErrors v-if="validationErrors" class="mb-2" :validation-errors="validationErrors" />
     <form @submit.prevent="onSubmit">
-      <b-field label="Title">
-        <b-input v-model="title" placeholder="Title of article" />
+      <b-field :label="$t('articleForm.title')">
+        <b-input v-model="title" :placeholder="$t('articleForm.titleOfArticle')" />
       </b-field>
-      <b-field label="Description">
-        <b-input v-model="description" placeholder="What's this article about?" />
+      <b-field :label="$t('articleForm.description')">
+        <b-input v-model="description" :placeholder="$t('articleForm.about')" />
       </b-field>
-      <b-field label="Body">
-        <b-input v-model="body" maxlength="1000" type="textarea" placeholder="Write your article" />
+      <b-field :label="$t('articleForm.body')">
+        <b-input v-model="body" maxlength="1000" type="textarea" :placeholder="$t('articleForm.yourArticle')" />
       </b-field>
       <b-field>
-        <b-input v-model="tagList" placeholder="Enter tags separated by space" />
+        <b-input v-model="tagList" :placeholder="$t('articleForm.tags')" />
       </b-field>
       <b-field>
         <b-button
@@ -20,7 +20,7 @@
           :disable="isSubmitting"
           type="is-success"
         >
-          Publish Article
+        {{ $t('articleForm.publish') }}
         </b-button>
       </b-field>
     </form>

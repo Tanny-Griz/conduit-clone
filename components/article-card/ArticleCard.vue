@@ -37,7 +37,7 @@
         </div>
         <div class="is-flex is-justify-content-space-between is-align-items-center">
           <nuxt-link :to="`/article/` + slug">
-            Read more...
+            {{ $t('articleCard.readMore') }}
           </nuxt-link>
           <b-taglist class="pt-2 px-2">
             <b-tag

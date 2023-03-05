@@ -5,6 +5,10 @@
     "newArticle": "New article",
     "settings": "Settings"
   },
+  "toggleBar": {
+    "globalArticles": "Global Articles",
+    "articlesOfFollowed": "Articles of Followed"
+  },
   "signUp": {
     "signUp": "Sign up",
     "haveAnAccount": "Have an account?",
@@ -26,5 +30,18 @@
     "cansel": "Cancel",
     "inputName": "Input name",
     "inputEmail": "Input Email"
+  },
+  "articleCard": {
+    "readMore": "Read more..."
+  },
+  "articleForm": {
+    "title": "Title",
+    "titleOfArticle": "Title of article",
+    "description": "Description",
+    "about": "What's this article about?",
+    "body": "Body",
+    "yourArticle": "Write your article",
+    "tags": "Enter tags separated by space",
+    "publish": "Publish Article"
   }
 }
