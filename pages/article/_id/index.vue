@@ -37,14 +37,14 @@
               class="m-1"
               @click="onFollowUser"
             >
-              <span>{{ isFollowingOpt ? '- Unfollow' : '+ Follow' }} {{ article.author.username }}</span>
+              <span>{{ isFollowingOpt ? $t('articlePage.unfollow') : $t('articlePage.follow') }} {{ article.author.username }}</span>
             </b-button>
             <b-button
               type="is-primary"
               class="m-1"
               @click="onFavoriteArticle"
             >
-              <b-icon class="mr-1" is-clicable :icon="isFavoritedOpt ? 'heart' : 'heart-outline'" size="is-small" />Favorite
+              <b-icon class="mr-1" is-clicable :icon="isFavoritedOpt ? 'heart' : 'heart-outline'" size="is-small" />{{ $t('articlePage.favorite') }}
             </b-button>
           </div>
         </div>
@@ -87,7 +87,7 @@
             <div class="media-content">
               <div class="field">
                 <p class="control">
-                  <textarea v-model="commentBody" class="textarea" placeholder="Add a comment..." />
+                  <textarea v-model="commentBody" class="textarea" :placeholder="$t('articlePage.addAComment')" />
                 </p>
               </div>
               <p v-if="errorMsg">
@@ -97,7 +97,7 @@
                 <div class="level-left">
                   <div class="level-item">
                     <b-button class="is-info" @click="onCreateComment">
-                      Submit
+                      {{ $t('articlePage.submit') }}
                     </b-button>
                   </div>
                 </div>

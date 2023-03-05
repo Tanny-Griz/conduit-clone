@@ -21,8 +21,8 @@
         />
       </template>
       <p v-if="!articles.length">
-        No articles are here... yet.
-        Go to the user page or article you like and click "follow"
+        {{ $t('articlesWrapper.noArticlesYet') }}
+        {{ $t('articlesWrapper.goToFollow') }}
       </p>
     </div>
     <Pagination

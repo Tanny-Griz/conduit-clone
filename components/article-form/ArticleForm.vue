@@ -20,7 +20,7 @@
           :disable="isSubmitting"
           type="is-success"
         >
-        {{ $t('articleForm.publish') }}
+          {{ $t('articleForm.publish') }}
         </b-button>
       </b-field>
     </form>

@@ -14,20 +14,20 @@
           class="is-small is-outlined is-align-items-start"
           @click="onFollowUser"
         >
-          <span>{{ isFollowingOpt ? '- Unfollow' : '+ Follow' }} {{ userProfile.username }}</span>
+          <span>{{ isFollowingOpt ? $t('profileCard.unfollow') : $t('profileCard.follow') }} {{ userProfile.username }}</span>
         </b-button>
         <nuxt-link v-if="isCurrentUserProfile" to="/settings" class="mr-3">
           <b-icon icon="cog-outline" size="is-small" />
-          <strong>Edit Profile Settings</strong>
+          <strong>{{ $t('profileCard.edit') }}</strong>
         </nuxt-link>
       </div>
     </div>
     <div class="container">
       <b-tabs v-model="activeTab" class="test">
-        <b-tab-item label="My Posts">
+        <b-tab-item :label="$t('profileCard.myPosts')">
           <ArticlesWrapper :api-url="apiUrl" />
         </b-tab-item>
-        <b-tab-item label="Favorited Posts">
+        <b-tab-item :label="$t('profileCard.favoritedPosts')">
           <ArticlesWrapper :api-url="apiUrlFavorited" />
         </b-tab-item>
       </b-tabs>

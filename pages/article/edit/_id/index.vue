@@ -1,6 +1,6 @@
 <template>
   <div class="edit-article-page section">
-    <h1>Edit</h1>
+    <h1>{{ $t('editArticle.edit') }}</h1>
     <ArticleForm
       v-if="initialValues"
       :initial-values="initialValues"

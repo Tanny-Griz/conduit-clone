@@ -43,5 +43,23 @@
     "yourArticle": "Write your article",
     "tags": "Enter tags separated by space",
     "publish": "Publish Article"
+  },
+  "articlesWrapper": {
+    "noArticlesYet": "No articles are here... yet.",
+    "goToFollow": "Go to the user page or article you like and click 'follow'"
+  },
+  "profileCard": {
+    "edit": "Edit Profile Settings",
+    "unfollow": "- Unfollow",
+    "follow": "+ Follow",
+    "myPosts": "My Posts",
+    "favoritedPosts": "Favorited Posts"
+  },
+  "articlePage": {
+    "unfollow": "- Unfollow",
+    "follow": "+ Follow",
+    "favorite": "Favorite",
+    "submit": "Submit",
+    "addAComment": "Add a commment..."
   }
 }

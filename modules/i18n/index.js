@@ -26,6 +26,6 @@ export const I18N = {
     useCookie: true
   },
   vueI18n: {
-    fallbackLocale: ["en", "ua", "ru"]
+    fallbackLocale: ['en', 'ua', 'ru']
   }
 }
