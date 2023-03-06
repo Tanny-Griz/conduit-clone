@@ -1,5 +1,5 @@
 {
-  "header": {
+  "navBar": {
     "signUp": "Sign up",
     "logIn": "Log in",
     "newArticle": "New article",
@@ -65,16 +65,21 @@
   "editArticlePage": {
     "edit": "Edit"
   },
-  "articlesOfFollowed": {
+  "articlesOfFollowedPage": {
     "popularTags": "Popular Tags"
   },
   "noAccessPage": {
     "noAccessPage": "No Access Page"
   },
-  "settings": {
+  "settingsPage": {
     "settings": "Settings",
     "updateSettings": "Update settings",
-    "clickToLogout": "Or click here to logout"
+    "clickToLogout": "Or click here to logout",
+    "url": "URL of profile picture",
+    "username": "Username",
+    "bio": "Short bio about you",
+    "email": "Email",
+    "newPassword": "New Password"
   },
   "tagPage": {
     "popularTags": "Popular Tags",

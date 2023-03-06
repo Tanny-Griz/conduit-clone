@@ -7,19 +7,19 @@
       <ValidationErrors v-if="validationErrors" class="mb-2" :validation-errors="validationErrors" />
       <form @submit.prevent="onSubmit">
         <b-field>
-          <b-input v-model="form.image" placeholder="URL of profile picture" />
+          <b-input v-model="form.image" :placeholder="$t('settingsPage.url')" />
         </b-field>
         <b-field>
-          <b-input v-model="form.username" placeholder="Username" />
+          <b-input v-model="form.username" :placeholder="$t('settingsPage.username')" />
         </b-field>
         <b-field>
-          <b-input v-model="form.bio" maxlength="200" type="textarea" placeholder="Short bio about you" />
+          <b-input v-model="form.bio" maxlength="200" type="textarea" :placeholder="$t('settingsPage.bio')" />
         </b-field>
         <b-field>
-          <b-input v-model="form.email" type="email" placeholder="Email" />
+          <b-input v-model="form.email" type="email" :placeholder="$t('settingsPage.email')" />
         </b-field>
         <b-field>
-          <b-input v-model="form.password" type="password" placeholder="New Password" />
+          <b-input v-model="form.password" type="password" :placeholder="$t('settingsPage.newPassword')" />
         </b-field>
         <b-field>
           <b-button

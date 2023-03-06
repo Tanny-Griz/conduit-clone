@@ -3,7 +3,7 @@
     "signUp": "Реєстрація",
     "logIn": "Авторизуватися",
     "newArticle": "Нова стаття",
-    "settings": "Настройки"
+    "settings": "Налаштування"
   },
   "toggleBar": {
     "globalArticles": "Глобальні статті",
@@ -72,7 +72,12 @@
   "settingsPage": {
     "settings": "Налаштування",
     "updateSettings": "Оновити налаштування",
-    "clickToLogout": "Або натисніть тут, щоб вийти"
+    "clickToLogout": "Або натисніть тут, щоб вийти",
+    "url": "URL зображення профілю",
+    "username": "Ім`я користувача",
+    "bio": "Коротка біографія про вас",
+    "email": "Електронна пошта",
+    "newPassword": "Новий пароль"
   },
   "tagPage": {
     "popularTags": "Популярні теги",
