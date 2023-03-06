@@ -2,7 +2,7 @@
   <b-navbar type="is-light">
     <template #brand>
       <div class="is-flex is-justify-content-center is-align-items-center">
-        <b-navbar-item tag='nuxt-link' to='/' class="has-text-dark has-text-weight-bold">
+        <b-navbar-item tag="nuxt-link" to="/" class="has-text-dark has-text-weight-bold">
           <strong>Conduit clone</strong>
         </b-navbar-item>
         <div class="lang-dropdown">
