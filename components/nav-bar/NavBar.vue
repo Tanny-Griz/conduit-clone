@@ -1,19 +1,21 @@
 <template>
   <b-navbar type="is-light">
     <template #brand>
-      <b-navbar-item tag="router-link" class="has-text-dark has-text-weight-bold" :to="{ path: '/' }">
-        Conduit clone
-      </b-navbar-item>
-      <div class="lang-dropdown">
-        <select v-model="$i18n.locale">
-          <option
-            v-for="lang in $i18n.locales"
-            :key="lang.code"
-            :value="lang.code"
-          >
-            {{ lang.name }}
-          </option>
-        </select>
+      <div class="is-flex is-justify-content-center is-align-items-center">
+        <b-navbar-item tag="router-link" class="has-text-dark has-text-weight-bold" :to="{ path: '/' }">
+          Conduit clone
+        </b-navbar-item>
+        <div class="lang-dropdown">
+          <select v-model="$i18n.locale">
+            <option
+              v-for="lang in $i18n.locales"
+              :key="lang.code"
+              :value="lang.code"
+            >
+              {{ lang.name }}
+            </option>
+          </select>
+        </div>
       </div>
     </template>
 

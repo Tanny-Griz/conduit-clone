@@ -1,17 +1,17 @@
 export const locales = [
   {
     code: 'en',
-    name: 'English',
+    name: 'En',
     file: 'en.json'
   },
   {
     code: 'ua',
-    name: 'Ukranian',
+    name: 'Ua',
     file: 'ua.json'
   },
   {
     code: 'ru',
-    name: 'Russian',
+    name: 'Ru',
     file: 'ru.json'
   }
 ]
