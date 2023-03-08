@@ -1,5 +1,5 @@
 <template>
-  <section class="profiles-card section">
+  <div class="profiles-card">
     <div v-if="userProfile" class="has-background-light mb-4">
       <div class="container has-text-centered py-5">
         <img width="100px" class="pt-5" :src="userProfile.image" alt="uder-image">
@@ -32,7 +32,7 @@
         </b-tab-item>
       </b-tabs>
     </div>
-  </section>
+  </div>
 </template>
 
 <script>

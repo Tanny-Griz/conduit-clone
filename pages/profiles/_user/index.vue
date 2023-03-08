@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <section class="user-page section">
     <template v-if="isLoading">
       <b-skeleton height="100" />
     </template>
@@ -9,7 +9,7 @@
         :current-user-name="currentUserName"
       />
     </template>
-  </div>
+  </section>
 </template>
 
 <script>
