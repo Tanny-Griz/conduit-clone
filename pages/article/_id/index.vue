@@ -73,7 +73,7 @@
               </div>
             </div>
             <div class="media-right">
-              <button class="delete" @click="onDeleteComment(comment.id)" />
+              <button class="delete" @click="onDeleteComment(comment.author.username, comment.id)" />
             </div>
           </article>
         </div>
@@ -214,12 +214,16 @@ export default {
         this.errorMsg = 'write something'
       }
     },
-    async onDeleteComment (id) {
-      try {
-        await comments.deleteComment(this.slug, id)
-        await this.getComments()
-      } catch (error) {
-        console.log('onDeleteComment', error)
+    async onDeleteComment (name, id) {
+      if (name !== this.currentUser.username) {
+        return false
+      } else {
+        try {
+          await comments.deleteComment(this.slug, id)
+          await this.getComments()
+        } catch (error) {
+          console.log('onDeleteComment', error)
+        }
       }
     },
     onFollowUser () {
