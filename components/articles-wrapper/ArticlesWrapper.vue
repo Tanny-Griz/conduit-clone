@@ -103,17 +103,14 @@ export default {
     },
     async getRealWorldArticles () {
       this.isLoadingArticles = true
-      const stringifiedParams = queryString.stringify({
-        limit,
-        offset: this.offset
-      })
       try {
-        if (this.tagName) {
-          const apiUrlWithParams = `${this.apiUrl}?tag=${this.tagName}&${stringifiedParams}`
-          const realWorldArticles = await articles.getRealWorldArticles(apiUrlWithParams)
-          this.articles = realWorldArticles.data.articles
-          this.articlesCount = realWorldArticles.data.articlesCount
-        } else if (this.apiUrl.includes('=')) {
+        const parsedUrl = queryString.parse(this.apiUrl)
+        const stringifiedParams = queryString.stringify({
+          limit,
+          offset: this.offset,
+          ...parsedUrl.query
+        })
+        if (this.apiUrl.includes('?')) {
           const apiUrlWithParams = `${this.apiUrl}&${stringifiedParams}`
           const realWorldArticles = await articles.getRealWorldArticles(apiUrlWithParams)
           this.articles = realWorldArticles.data.articles

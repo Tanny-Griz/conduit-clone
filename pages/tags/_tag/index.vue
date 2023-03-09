@@ -42,7 +42,7 @@ export default {
   },
   computed: {
     apiUrl () {
-      return '/articles'
+      return `/articles?tag=${this.tagName}`
     },
     tagName () {
       return this.$route.params.tag || ''
