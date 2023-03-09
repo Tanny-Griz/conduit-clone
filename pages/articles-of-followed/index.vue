@@ -22,6 +22,7 @@ export default {
     ArticlesWrapper,
     TagList
   },
+  middleware: ['user-management'],
   data () {
     return {
       apiUrl: 'articles/feed',

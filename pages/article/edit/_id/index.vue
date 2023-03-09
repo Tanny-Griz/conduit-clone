@@ -20,6 +20,7 @@ export default {
   components: {
     ArticleForm
   },
+  middleware: ['user-management'],
   async asyncData ({ params }) {
     try {
       const data = await article.getArticle(params.id)

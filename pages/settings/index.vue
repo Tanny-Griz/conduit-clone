@@ -47,6 +47,7 @@ export default {
   components: {
     ValidationErrors
   },
+  middleware: ['user-management'],
   head () {
     return {
       titleTemplate: 'Settings Page'

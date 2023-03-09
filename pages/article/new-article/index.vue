@@ -18,6 +18,7 @@ export default {
   components: {
     ArticleForm
   },
+  middleware: ['user-management'],
   data () {
     return {
       initialValues: {
