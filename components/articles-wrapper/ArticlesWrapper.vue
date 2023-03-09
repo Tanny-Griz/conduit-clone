@@ -22,7 +22,6 @@
       </template>
       <p v-if="!articles.length">
         {{ $t('articlesWrapper.noArticlesYet') }}
-        {{ $t('articlesWrapper.goToFollow') }}
       </p>
     </div>
     <Pagination

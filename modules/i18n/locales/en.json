@@ -45,8 +45,7 @@
     "publish": "Publish Article"
   },
   "articlesWrapper": {
-    "noArticlesYet": "No articles are here... yet.",
-    "goToFollow": "Go to the user page or article you like and click 'follow'"
+    "noArticlesYet": "No articles are here... yet."
   },
   "profileCard": {
     "edit": "Edit Profile Settings",
