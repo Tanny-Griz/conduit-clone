@@ -3,6 +3,7 @@
 This app is clone realworld.io.
 Technologies used: Nuxt, Vue.js, Bulma
 in this app you can:
+
 - register, login
 - add your articles (articles will be available to you in the "My posts")
 - edit your articles
